@@ -61,7 +61,7 @@
       <p>{{ description }}</p>
       <!-- <p>{{ splitDescription.description2 }}</p> -->
     </div>
-    <p class="exhibitor-books-title">Books</p>
+    <p v-if="books" class="exhibitor-books-title">Books</p>
     <Book :books="books" />
   </div>
 </template>

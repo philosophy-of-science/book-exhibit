@@ -1,5 +1,12 @@
 <template>
   <div>
+    <section
+      class="exhibitor-toc"
+      v-for="exhibitor in exhibitors"
+      :key="exhibitor.slug"
+    >
+      <a :href="'#' + exhibitor.slug">{{ exhibitor.publisher }}</a>
+    </section>
     <section v-for="exhibitor in exhibitors" :key="exhibitor.slug">
       <exhibitor
         :publisher="exhibitor.publisher"
@@ -49,10 +56,10 @@ export default {
           "A pioneering exploration of olfaction that upsets settled notions of how the brain translates sensory information.\n\nDecades of cognition research have shown that external stimuli “spark” neural patterns in particular regions of the brain. This has fostered a view of the brain as a space that we can map: here the brain responds to faces, there it perceives a sensation in your left hand. But it turns out that the sense of smell—only recently attracting broader attention in neuroscience—doesn’t work this way. A. S. Barwich asks a deceptively simple question: What does the nose tell the brain, and how does the brain understand it?\n\nBarwich interviews experts in neuroscience, psychology, chemistry, and perfumery in an effort to understand the biological mechanics and myriad meanings of odors. She argues that it is time to stop recycling ideas based on the paradigm of vision for the olfactory system. Scents are often fickle and boundless in comparison with visual images, and they do not line up with well-defined neural regions. Although olfaction remains a puzzle, Barwich proposes that what we know suggests the brain acts not only like a map but also as a measuring device, one that senses and processes simple and complex odors.\n\nAccounting for the sense of smell upsets theories of perception philosophers have developed. In their place, Smellosophy articulates a new model for understanding how the brain represents sensory information.",
         link: "https://www.hup.harvard.edu/catalog.php?isbn=9780674983694",
         cover:
-          "https://res.cloudinary.com/philosophy-of-science-association/image/upload/v1624912969/9780674983694-lg_jrvujz.jpg",
+          "https://res.cloudinary.com/philosophy-of-science-association/image/upload/h_312,w_200,q_auto,f_auto/9780674983694-lg_jrvujz.jpg",
         slug: "harvard-university-press",
         publisher: "Harvard University Press",
-        logo: "https://res.cloudinary.com/philosophy-of-science-association/image/upload/v1624891900/harvard-university-press.jpg",
+        logo: "https://res.cloudinary.com/philosophy-of-science-association/image/upload/h_60,w_60,q_auto,f_auto/harvard-university-press.jpg",
         website: "http://www.smellosophy.com/",
         twitter:
           "https://twitter.com/Harvard_Press?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
@@ -105,6 +112,29 @@ export default {
 </script>
 
 <style scoped>
+.exhibitor-toc {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.exhibitor-toc a {
+  display: flex;
+  align-items: center;
+  color: #000;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.exhibitor-toc a:hover {
+  background-color: #ccc;
+}
+
+.exhibitor-toc a + a {
+  border-left: none;
+}
+
 div {
   max-width: 1024px;
   margin: 40px auto;

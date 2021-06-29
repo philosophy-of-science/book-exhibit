@@ -1,5 +1,5 @@
 <template>
-  <div class="books-container">
+  <div v-if="books" class="books-container">
     <article class="book-item" v-for="(book, idx) in books" :key="idx">
       <a :href="book.link" class="book-cover">
         <img :src="book.cover" :alt="book.title" />
@@ -12,7 +12,7 @@
           ></a>
         </h3>
         <p>{{ book.author }}</p>
-        <p>{{ book.publisher }} {{ book.date }}</p>
+        <p>{{ book.publisher }} {{ formatDate(book.date) }}</p>
       </div>
     </article>
   </div>
@@ -22,6 +22,13 @@
 export default {
   props: {
     books: Array,
+  },
+  methods: {
+    formatDate(str) {
+      const d = new Date(str);
+      const year = d.getFullYear();
+      return year;
+    },
   },
 };
 </script>
