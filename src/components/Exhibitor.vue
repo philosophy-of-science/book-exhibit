@@ -17,43 +17,67 @@
           class="website"
           aria-label="website"
           title="website"
-          ><i class="fa fa-external-link" aria-hidden="true"></i
-        ></a>
+          ><unicon
+            name="external-link-alt"
+            width="1em"
+            height="1em"
+            fill="var(--charcoal)"
+        /></a>
         <a
           v-if="twitter"
           :href="twitter"
           class="twitter"
           aria-label="twitter"
           title="twitter"
-          ><i class="fa fa-twitter" aria-hidden="true"></i
-        ></a>
+          ><unicon
+            name="twitter"
+            width="1em"
+            height="1em"
+            fill="var(--twitter)"
+        /></a>
         <a
           v-if="facebook"
           :href="facebook"
           class="facebook"
           aria-label="facebook"
           title="facebook"
-          ><i class="fa fa-facebook" aria-hidden="true"></i
-        ></a>
+          ><unicon
+            name="facebook"
+            width="1em"
+            height="1em"
+            fill="var(--facebook)"
+        /></a>
         <a
           v-if="instagram"
           :href="instagram"
           class="instagram"
           aria-label="instagram"
           title="instagram"
-          ><i class="fa fa-instagram" aria-hidden="true"></i
-        ></a>
+          ><unicon
+            name="instagram"
+            width="1em"
+            height="1em"
+            fill="var(--instagram)"
+        /></a>
         <a
           v-if="linkedin"
           :href="linkedin"
           class="linkedin"
           aria-label="linkedin"
           title="linkedin"
-          ><i class="fa fa-linkedin" aria-hidden="true"></i
-        ></a>
+          ><unicon
+            name="linkedin"
+            width="1em"
+            height="1em"
+            fill="var(--linkedin)"
+        /></a>
         <a v-if="blog" :href="blog" class="blog" aria-label="blog" title="blog"
-          ><i class="fa fa-file-text" aria-hidden="true"></i
-        ></a>
+          ><unicon
+            name="document-layout-left"
+            width="1em"
+            height="1em"
+            fill="var(--charcoal)"
+        /></a>
       </div>
     </header>
     <p v-if="description" class="exhibitor-about">About</p>
@@ -67,7 +91,7 @@
 </template>
 
 <script>
-import Book from "./Book.vue";
+import Book from "./Books.vue";
 export default {
   components: {
     Book,
@@ -106,20 +130,18 @@ export default {
 
 <style lang="css" scoped>
 .exhibitor-container {
-  border: 1px solid #ccc;
 }
 
 .exhibitor-logo {
   display: flex;
   align-items: center;
-  padding: 20px;
-  border-right: 1px solid #ccc;
+  padding: var(--padding);
 }
 
 header {
   display: flex;
   /* align-items: center; */
-  border-bottom: 1px solid #ccc;
+  border-bottom: var(--bb);
 }
 img {
   height: 60px;
@@ -128,8 +150,7 @@ img {
 }
 
 .exhibitor-name {
-  padding: 20px;
-  border-right: 1px solid #ccc;
+  padding: var(--padding);
   display: flex;
   align-items: center;
 }
@@ -154,7 +175,7 @@ img {
   text-decoration: none;
   border-radius: 50%;
   transition: background-color 0.2s, color 0.2s;
-
+  /* top: 3px; */
   border: 1px solid currentColor;
 }
 
@@ -206,27 +227,29 @@ img {
 }
 .exhibitor-about,
 .exhibitor-books-title {
-  padding: 20px;
+  padding: calc(2 * var(--padding)) var(--padding) var(--padding);
   font-size: 115%;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.2px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--silver-600);
 }
 .exhibitor-description {
   /* display: grid;
   gap: 40px;
   grid-template-columns: 1fr 1fr;
   */
-  padding: 20px;
+  padding: var(--padding);
   line-height: 1.5;
   font-size: clamp(1rem, 1rem + 0.2vw, 22px);
   /* text-align: justify; */
   columns: 2 auto;
   column-gap: 40px;
 }
+</style>
 
-.exhibitor-books-title {
-  border-top: 1px solid #ccc;
+<style>
+.exhibitor-body a:hover svg {
+  fill: #fff;
 }
 </style>

@@ -1,26 +1,104 @@
-{
-  "publishers": [{
+[
+  {
+    "title": "Smellosophy",
+    "author": "A. S. Barwich",
+    "date": "7/14/2020",
+    "description": "A pioneering exploration of olfaction that upsets settled notions of how the brain translates sensory information.\n\nDecades of cognition research have shown that external stimuli “spark” neural patterns in particular regions of the brain. This has fostered a view of the brain as a space that we can map: here the brain responds to faces, there it perceives a sensation in your left hand. But it turns out that the sense of smell—only recently attracting broader attention in neuroscience—doesn’t work this way. A. S. Barwich asks a deceptively simple question: What does the nose tell the brain, and how does the brain understand it?\n\nBarwich interviews experts in neuroscience, psychology, chemistry, and perfumery in an effort to understand the biological mechanics and myriad meanings of odors. She argues that it is time to stop recycling ideas based on the paradigm of vision for the olfactory system. Scents are often fickle and boundless in comparison with visual images, and they do not line up with well-defined neural regions. Although olfaction remains a puzzle, Barwich proposes that what we know suggests the brain acts not only like a map but also as a measuring device, one that senses and processes simple and complex odors.\n\nAccounting for the sense of smell upsets theories of perception philosophers have developed. In their place, Smellosophy articulates a new model for understanding how the brain represents sensory information.",
+    "link": "https://www.hup.harvard.edu/catalog.php?isbn=9780674983694",
+    "cover": "https://res.cloudinary.com/philosophy-of-science-association/image/upload/v1624912969/9780674983694-lg_jrvujz.jpg",
+    "slug": "harvard-university-press",
     "publisher": "Harvard University Press",
-    "logo": "https://dryfta-assets.s3.eu-central-1.amazonaws.com/assets/psa2020/organizations/1624640639HUPimg.png",
+    "logo": "https://res.cloudinary.com/philosophy-of-science-association/image/upload/v1624891900/harvard-university-press.jpg",
     "website": "http://www.smellosophy.com/",
     "twitter": "https://twitter.com/Harvard_Press?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
     "facebook": "https://www.facebook.com/HarvardPress/",
     "instragram": "https://www.instagram.com/harvardpress/?hl=en",
     "linkedin": "https://www.linkedin.com/company/harvard-university-press-hup",
-    "blog": "https://harvardpress.typepad.com/",
-    "slug": "harvard-university-press"
+    "blog": "https://harvardpress.typepad.com/"
+  },
+  {
+    "title": "Philosophy of Science",
+    "author": "Andrea Woody",
+    "date": "01/01/2021",
+    "description": "Founded in 1890, the University of Chicago Press is one of the oldest continuously operating university presses in the United States. From its inception, a primary goal of the Press has been to publish academic findings and analyses from scholars the world over. The Journals Division publishes more than 80 scholarly journals that cover a wide range of disciplines, from the humanities and the social sciences to the life and physical sciences.",
+    "link": "https://www.journals.uchicago.edu/toc/phos/current",
+    "cover": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/covergifs/phos/cover.png",
+    "slug": "university-of-chicago-press-journals",
+    "publisher": "University of Chicago Press Journals",
+    "logo": "https://dryfta-assets.s3.eu-central-1.amazonaws.com/assets/psa2020/organizations/15995935221532651883logo-ucpj-square.png",
+    "website": "http://www.journals.uchicago.edu/",
+    "twitter": "https://twitter.com/ChicagoJournals",
+    "facebook": "https://www.facebook.com/UChicagoJournals/",
+    "instragram": "",
+    "linkedin": "",
+    "blog": ""
+  },
+  {
+    "title": "The British Journal for the Philosophy of Science",
+    "author": "Wendy Parker and Robert Rupert",
+    "date": "01/01/2021",
+    "description": "Founded in 1890, the University of Chicago Press is one of the oldest continuously operating university presses in the United States. From its inception, a primary goal of the Press has been to publish academic findings and analyses from scholars the world over. The Journals Division publishes more than 80 scholarly journals that cover a wide range of disciplines, from the humanities and the social sciences to the life and physical sciences.",
+    "link": "https://www.journals.uchicago.edu/toc/bjps/current",
+    "cover": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/content/bjps/2021/bjps.2021.72.issue-2/bjps.2021.72.issue-2/20210513/bjps.2021.72.issue-2.cover.gif",
+    "slug": "university-of-chicago-press-journals",
+    "publisher": "University of Chicago Press Journals",
+    "logo": "https://dryfta-assets.s3.eu-central-1.amazonaws.com/assets/psa2020/organizations/15995935221532651883logo-ucpj-square.png",
+    "website": "http://www.journals.uchicago.edu/",
+    "twitter": "https://twitter.com/ChicagoJournals",
+    "facebook": "https://www.facebook.com/UChicagoJournals/",
+    "instragram": "",
+    "linkedin": "",
+    "blog": ""
+  },
+  {
+    "title": "Critical Inquiry",
+    "author": "Frances Ferguson and Bill Brown",
+    "date": "01/01/2021",
+    "description": "Founded in 1890, the University of Chicago Press is one of the oldest continuously operating university presses in the United States. From its inception, a primary goal of the Press has been to publish academic findings and analyses from scholars the world over. The Journals Division publishes more than 80 scholarly journals that cover a wide range of disciplines, from the humanities and the social sciences to the life and physical sciences.",
+    "link": "https://www.journals.uchicago.edu/toc/ci/current",
+    "cover": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/content/ci/2020/ci.2020.47.issue-1/ci.2020.47.issue-1/20200922/ci.2020.47.issue-1.cover.gif",
+    "slug": "university-of-chicago-press-journals",
+    "publisher": "University of Chicago Press Journals",
+    "logo": "https://dryfta-assets.s3.eu-central-1.amazonaws.com/assets/psa2020/organizations/15995935221532651883logo-ucpj-square.png",
+    "website": "http://www.journals.uchicago.edu/",
+    "twitter": "https://twitter.com/ChicagoJournals",
+    "facebook": "https://www.facebook.com/UChicagoJournals/",
+    "instragram": "",
+    "linkedin": "",
+    "blog": ""
+  },
+  {
+    "title": "HOPOS: The Journal of the International Society for the History of Philosophy of Science",
+    "author": "Lydia Patton",
+    "date": "01/01/2021",
+    "description": "Founded in 1890, the University of Chicago Press is one of the oldest continuously operating university presses in the United States. From its inception, a primary goal of the Press has been to publish academic findings and analyses from scholars the world over. The Journals Division publishes more than 80 scholarly journals that cover a wide range of disciplines, from the humanities and the social sciences to the life and physical sciences.",
+    "link": "https://www.journals.uchicago.edu/toc/hopos/current",
+    "cover": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/content/hopos/2020/hopos.2020.10.issue-1/hopos.2020.10.issue-1/20200602/hopos.2020.10.issue-1.cover.gif",
+    "slug": "university-of-chicago-press-journals",
+    "publisher": "University of Chicago Press Journals",
+    "logo": "https://dryfta-assets.s3.eu-central-1.amazonaws.com/assets/psa2020/organizations/15995935221532651883logo-ucpj-square.png",
+    "website": "http://www.journals.uchicago.edu/",
+    "twitter": "https://twitter.com/ChicagoJournals",
+    "facebook": "https://www.facebook.com/UChicagoJournals/",
+    "instragram": "",
+    "linkedin": "",
+    "blog": ""
+  },
+  {
+    "title": "Isis: A Journal of the History of Science Society",
+    "author": "Alexandra Hui and Matthew Lavine",
+    "date": "01/01/2021",
+    "description": "Founded in 1890, the University of Chicago Press is one of the oldest continuously operating university presses in the United States. From its inception, a primary goal of the Press has been to publish academic findings and analyses from scholars the world over. The Journals Division publishes more than 80 scholarly journals that cover a wide range of disciplines, from the humanities and the social sciences to the life and physical sciences.",
+    "link": "https://www.journals.uchicago.edu/toc/isis/current",
+    "cover": "https://www.journals.uchicago.edu/na101/home/literatum/publisher/uchicago/journals/content/isis/2020/isis.2020.111.issue-3/isis.2020.111.issue-3/20200916/isis.2020.111.issue-3.cover.gif",
+    "slug": "university-of-chicago-press-journals",
+    "publisher": "University of Chicago Press Journals",
+    "logo": "https://dryfta-assets.s3.eu-central-1.amazonaws.com/assets/psa2020/organizations/15995935221532651883logo-ucpj-square.png",
+    "website": "http://www.journals.uchicago.edu/",
+    "twitter": "https://twitter.com/ChicagoJournals",
+    "facebook": "https://www.facebook.com/UChicagoJournals/",
+    "instragram": "",
+    "linkedin": "",
+    "blog": ""
   }
-],
-"books": [
-    {
-      "title": "Smellosophy",
-      "author": "A. S. Barwich",
-      "date": "7/14/2020",
-      "description": "A pioneering exploration of olfaction that upsets settled notions of how the brain translates sensory information.\n\nDecades of cognition research have shown that external stimuli “spark” neural patterns in particular regions of the brain. This has fostered a view of the brain as a space that we can map: here the brain responds to faces, there it perceives a sensation in your left hand. But it turns out that the sense of smell—only recently attracting broader attention in neuroscience—doesn’t work this way. A. S. Barwich asks a deceptively simple question: What does the nose tell the brain, and how does the brain understand it?\n\nBarwich interviews experts in neuroscience, psychology, chemistry, and perfumery in an effort to understand the biological mechanics and myriad meanings of odors. She argues that it is time to stop recycling ideas based on the paradigm of vision for the olfactory system. Scents are often fickle and boundless in comparison with visual images, and they do not line up with well-defined neural regions. Although olfaction remains a puzzle, Barwich proposes that what we know suggests the brain acts not only like a map but also as a measuring device, one that senses and processes simple and complex odors.\n\nAccounting for the sense of smell upsets theories of perception philosophers have developed. In their place, Smellosophy articulates a new model for understanding how the brain represents sensory information.",
-      "link": "https://www.hup.harvard.edu/catalog.php?isbn=9780674983694",
-      "cover": "https://drive.google.com/file/d/13O-eUEtRiBdMW6rDATcL27KTFm0loGZT/view?usp=sharing",
-      "slug": "harvard-university-press",
-      "publisher": "Harvard University Press"
-    }
 ]
-}
