@@ -7,7 +7,7 @@
       twitter="https://twitter.com/PhilSciAssoc"
       facebook="https://www.facebook.com/philsciassociation"
       slug="philsci"
-      description="The virtual book exhibit..."
+      description="The PSA 2021 virtual book exhibit features the leading publishers of philosophy of science and related fields. Browse the titles below to find your next read."
     />
   </div>
 </template>
