@@ -24,28 +24,33 @@ export default {
 <style scoped>
 .exhibitor-toc {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   border-bottom: 1px solid var(--silver-600);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+  .exhibitor-toc {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .exhibitor-toc a {
   display: flex;
+  flex: 1;
+  justify-content: center;
   align-items: center;
-  color: inherit;
   padding: var(--padding);
+  color: inherit;
+  text-align: center;
   text-decoration: none;
   transition: background-color 0.2s;
-  flex: 1;
-  text-align: center;
-  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  color: var(--charcoal-500);
 }
 
 .exhibitor-toc a:hover {
   background-color: var(--silver-500);
-}
-
-.exhibitor-toc a + a {
-  border-left: none;
 }
 </style>

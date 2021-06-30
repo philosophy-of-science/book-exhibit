@@ -89,6 +89,6 @@ export default {
 <style scoped>
 div {
   max-width: 1024px;
-  margin: calc(4 * var(--padding)) auto;
+  margin: calc(6 * var(--padding)) auto;
 }
 </style>

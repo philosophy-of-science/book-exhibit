@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     faves: [],
+    favesShown: false,
   },
 
   getters: {
@@ -26,6 +27,9 @@ const store = new Vuex.Store({
 
       state.faves = [...filtered];
       localStorage.setItem("faves", JSON.stringify(state.faves));
+    },
+    toggleFaves(state) {
+      state.favesShown = !state.favesShown;
     },
   },
 });

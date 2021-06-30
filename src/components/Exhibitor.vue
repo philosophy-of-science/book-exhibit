@@ -19,8 +19,8 @@
           title="website"
           ><unicon
             name="external-link-alt"
-            width="1em"
-            height="1em"
+            width="1.25em"
+            height="1.25em"
             fill="var(--charcoal)"
         /></a>
         <a
@@ -31,8 +31,8 @@
           title="twitter"
           ><unicon
             name="twitter"
-            width="1em"
-            height="1em"
+            width="1.25em"
+            height="1.25em"
             fill="var(--twitter)"
         /></a>
         <a
@@ -43,8 +43,8 @@
           title="facebook"
           ><unicon
             name="facebook"
-            width="1em"
-            height="1em"
+            width="1.25em"
+            height="1.25em"
             fill="var(--facebook)"
         /></a>
         <a
@@ -55,8 +55,8 @@
           title="instagram"
           ><unicon
             name="instagram"
-            width="1em"
-            height="1em"
+            width="1.25em"
+            height="1.25em"
             fill="var(--instagram)"
         /></a>
         <a
@@ -67,15 +67,15 @@
           title="linkedin"
           ><unicon
             name="linkedin"
-            width="1em"
-            height="1em"
+            width="1.25em"
+            height="1.25em"
             fill="var(--linkedin)"
         /></a>
         <a v-if="blog" :href="blog" class="blog" aria-label="blog" title="blog"
           ><unicon
             name="document-layout-left"
-            width="1em"
-            height="1em"
+            width="1.25em"
+            height="1.25em"
             fill="var(--charcoal)"
         /></a>
       </div>
@@ -85,7 +85,7 @@
       <p>{{ description }}</p>
       <!-- <p>{{ splitDescription.description2 }}</p> -->
     </div>
-    <p v-if="books" class="exhibitor-books-title">Books</p>
+    <p v-if="books" class="exhibitor-about">Books</p>
     <Books :books="books" :areFaves="false" />
   </div>
 </template>
@@ -134,21 +134,29 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style scoped>
+header {
+  display: grid;
+  grid-template-columns: min-content auto;
+  flex-wrap: wrap;
+  border-bottom: var(--bb);
+}
+
+@media (min-width: 768px) {
+  header {
+    grid-template-columns: min-content max-content auto;
+  }
+}
+
 .exhibitor-logo {
   display: flex;
   align-items: center;
   padding: var(--padding);
 }
 
-header {
-  display: flex;
-  /* align-items: center; */
-  border-bottom: var(--bb);
-}
 img {
-  height: 60px;
-  width: 60px;
+  height: 3.5rem;
+  width: 3.5rem;
   object-fit: contain;
 }
 
@@ -156,22 +164,32 @@ img {
   padding: var(--padding);
   display: flex;
   align-items: center;
+  line-height: 1.3;
+  padding-left: 0;
 }
-.exhibitor-body {
-  display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-  flex: 1;
-  justify-content: end;
+/* Social Media Icons  */
+.exhibitor-body {
+  display: flex;
+
+  justify-content: flex-end;
   align-items: center;
+  padding: var(--padding);
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .exhibitor-body {
+    grid-column: initial;
+  }
 }
 
 .exhibitor-body a {
   justify-self: center;
-  padding: 15px;
-  margin: 20px;
-  height: 40px;
-  width: 40px;
+  padding: calc(var(--padding) / 3);
+  margin: calc(var(--padding) / 2);
+  height: 2.5rem;
+  width: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,6 +197,11 @@ img {
   border-radius: 50%;
   transition: background-color 0.2s, color 0.2s;
   border: 1px solid currentColor;
+}
+
+.exhibitor-body a div {
+  position: relative;
+  top: 3px;
 }
 
 .twitter {
@@ -227,21 +250,27 @@ img {
   background-color: #3a3a3a;
   color: #fff;
 }
-.exhibitor-about,
-.exhibitor-books-title {
-  padding: calc(2 * var(--padding)) var(--padding) var(--padding);
+
+.exhibitor-about {
+  padding: calc(3 * var(--padding)) var(--padding) var(--padding);
+  border-bottom: 1px solid var(--silver-600);
+  font-weight: 700;
   font-size: 115%;
   text-transform: uppercase;
-  font-weight: 700;
   letter-spacing: 0.2px;
-  border-bottom: 1px solid var(--silver-600);
 }
+
 .exhibitor-description {
+  max-width: 66ch;
   padding: var(--padding);
-  line-height: 1.5;
-  font-size: clamp(1rem, 1rem + 0.2vw, 22px);
-  columns: 2 auto;
-  column-gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .exhibitor-description {
+    max-width: initial;
+    columns: 2 auto;
+    column-gap: calc(var(--padding) * 2);
+  }
 }
 </style>
 

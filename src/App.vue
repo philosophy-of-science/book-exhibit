@@ -1,29 +1,25 @@
 <template>
   <div id="app">
-    <div class="exhibit-cta">
-      <a href="#"
-        ><unicon
-          name="book-alt"
-          height="1.25em"
-          width="1.25em"
-          fill="#fff"
-        />Join the exhibit</a
-      >
-    </div>
     <Heading />
     <exhibitor-data />
+    <fave-button />
+    <fave-bar />
   </div>
 </template>
 
 <script>
 import ExhibitorData from "./components/ExhibitorData.vue";
 import Heading from "./components/Heading.vue";
+import FaveButton from "./components/FaveButton.vue";
+import FaveBar from "./components/FaveBar.vue";
 
 export default {
   name: "App",
   components: {
     ExhibitorData,
     Heading,
+    FaveButton,
+    FaveBar,
   },
 };
 </script>
@@ -53,7 +49,7 @@ export default {
   --instagram: #3f729b;
   --linkedin: #0077b5;
 
-  --padding: 1.25rem;
+  --padding: 1rem;
 
   --bb: 1px solid var(--silver-600);
 
@@ -62,20 +58,27 @@ export default {
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-md: 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  --sm: 640px;
+  --md: 768px;
+  --lg: 1024px;
+  --xl: 1280px;
 }
 
 html {
   font-size: 1rem;
-  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  font-size: clamp(1rem, 0.875rem + 0.3125vw, 1.25rem);
   line-height: 1.5;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
 }
 
 #app {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   max-width: 1024px;
   margin: 0 auto;
   padding: calc(2 * var(--padding)) var(--padding);
@@ -116,36 +119,6 @@ html {
   vertical-align: bottom;
   text-align: center;
   color: #222;
-}
-
-.exhibit-cta {
-  background-color: #af1f24;
-  justify-content: center;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  border-radius: 2em;
-  /* overflow: hidden; */
-  transition: background-color 0.2s;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
-.exhibit-cta a {
-  display: inline-flex;
-  align-items: center;
-  font-size: 15px;
-  color: #fff;
-  text-decoration: none;
-  padding: var(--padding);
-  text-transform: uppercase;
-  letter-spacing: 0.2px;
-  font-weight: 700;
-}
-.exhibit-cta svg {
-  margin-right: 2px;
-}
-.exhibit-cta:hover {
-  background-color: #780000;
 }
 
 .about {
