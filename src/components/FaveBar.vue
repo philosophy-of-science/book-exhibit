@@ -1,15 +1,29 @@
 <template>
   <div class="container" v-if="this.$store.state.favesShown">
-    <p v-if="!faves">No faves yet!</p>
-    <Books :books="this.$store.state.faves" :areFaves="true" />
-    <button class="btn-cta" v-if="faves" @click="downloadFaves">
-      <unicon
-        name="file-download-alt"
-        height="1.25em"
-        width="1.25em"
-        fill="#fff"
-      />Download Faves
-    </button>
+    <div class="inner-container">
+      <button class="close-btn" @click="closeFaves">
+        <unicon
+          name="times-circle"
+          fill="var(--red-500)"
+          hover-fill="var(--red-600)"
+          height="2rem"
+          width="2rem"
+        />
+      </button>
+      <p v-if="!faves">No faves yet! Click the star to start saving.</p>
+      <div class="btn-container">
+        <button class="btn-cta" v-if="faves" @click="downloadFaves">
+          <unicon
+            name="file-download-alt"
+            height="1.25em"
+            width="1.25em"
+            fill="var(--charcoal-500)"
+          />Download Faves
+        </button>
+      </div>
+
+      <Books :books="this.$store.state.faves" :areFaves="true" />
+    </div>
   </div>
 </template>
 
@@ -21,7 +35,16 @@ export default {
     Books,
   },
 
+  computed: {
+    faves() {
+      return this.$store.state.faves.length;
+    },
+  },
+
   methods: {
+    closeFaves() {
+      this.$store.commit("toggleFaves");
+    },
     downloadFaves() {
       const filename = "PSA Book Exhibit Faves";
 
@@ -57,8 +80,32 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(15px);
+}
+
+.inner-container {
+  background: #fff;
+  padding: var(--padding);
   max-width: 1024px;
-  margin: 0 auto;
+  margin: 1rem auto;
+  min-height: 30vh;
+  box-shadow: var(--shadow-sm);
+  max-height: calc(100% - 2rem);
+  overflow: auto;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  float: right;
+  cursor: pointer;
+}
+
+.btn-container {
   padding: var(--padding);
 }
 
@@ -72,13 +119,15 @@ export default {
   font-family: inherit;
   text-transform: uppercase;
   cursor: pointer;
-  background-color: var(--red-500);
+  background-color: #fff;
+  color: var(--charcoal-500);
   box-shadow: var(--shadow-sm);
   transition: background-color 0.2s;
+  border: 1px solid;
 }
 
 .btn-cta:hover {
-  background-color: var(--red-600);
+  background-color: #f0f0f0;
   box-shadow: var(--shadow-md);
 }
 

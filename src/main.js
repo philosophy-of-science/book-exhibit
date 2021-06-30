@@ -18,6 +18,7 @@ import {
   uniBookAlt,
   uniFileDownloadAlt,
   uniHome,
+  uniTimesCircle,
 } from "vue-unicons/dist/icons";
 
 Unicon.add([
@@ -35,6 +36,7 @@ Unicon.add([
   uniBookAlt,
   uniFileDownloadAlt,
   uniHome,
+  uniTimesCircle,
 ]);
 Vue.use(Unicon);
 Vue.config.productionTip = false;
