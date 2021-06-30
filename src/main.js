@@ -1,10 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
+import store from "./store";
 
 import Unicon from "vue-unicons/dist/vue-unicons-vue2.umd";
 import {
-  uniPlusCircle,
-  uniCheckCircle,
   uniExternalLinkAlt,
   uniMeetingBoard,
   uniFileAlt,
@@ -16,11 +15,10 @@ import {
   uniInstagram,
   uniFavoriteMonochrome,
   uniFavorite,
+  uniBookAlt,
 } from "vue-unicons/dist/icons";
 
 Unicon.add([
-  uniPlusCircle,
-  uniCheckCircle,
   uniExternalLinkAlt,
   uniMeetingBoard,
   uniFileAlt,
@@ -32,10 +30,12 @@ Unicon.add([
   uniInstagram,
   uniFavoriteMonochrome,
   uniFavorite,
+  uniBookAlt,
 ]);
 Vue.use(Unicon);
 Vue.config.productionTip = false;
 
 new Vue({
+  store,
   render: (h) => h(App),
 }).$mount("#app");

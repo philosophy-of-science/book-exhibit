@@ -86,15 +86,15 @@
       <!-- <p>{{ splitDescription.description2 }}</p> -->
     </div>
     <p v-if="books" class="exhibitor-books-title">Books</p>
-    <Book :books="books" />
+    <Books :books="books" />
   </div>
 </template>
 
 <script>
-import Book from "./Books.vue";
+import Books from "./Books.vue";
 export default {
   components: {
-    Book,
+    Books,
   },
   props: {
     publisher: String,
@@ -125,13 +125,16 @@ export default {
       return { description1: description, description2: null };
     },
   },
+  methods: {
+    alertMe(b) {
+      console.log(b);
+      alert(b);
+    },
+  },
 };
 </script>
 
 <style lang="css" scoped>
-.exhibitor-container {
-}
-
 .exhibitor-logo {
   display: flex;
   align-items: center;
@@ -175,7 +178,6 @@ img {
   text-decoration: none;
   border-radius: 50%;
   transition: background-color 0.2s, color 0.2s;
-  /* top: 3px; */
   border: 1px solid currentColor;
 }
 
@@ -235,14 +237,9 @@ img {
   border-bottom: 1px solid var(--silver-600);
 }
 .exhibitor-description {
-  /* display: grid;
-  gap: 40px;
-  grid-template-columns: 1fr 1fr;
-  */
   padding: var(--padding);
   line-height: 1.5;
   font-size: clamp(1rem, 1rem + 0.2vw, 22px);
-  /* text-align: justify; */
   columns: 2 auto;
   column-gap: 40px;
 }

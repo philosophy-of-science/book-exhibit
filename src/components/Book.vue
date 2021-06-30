@@ -1,9 +1,8 @@
 <template>
-  <div class="book-item">
+  <div class="book-item" :id="slug(book.title)">
     <div class="book-cover">
       <img :src="book.cover" :alt="book.title" />
-
-      <button @click="faved = !faved" class="fave" :class="{ faved: faved }">
+      <button @click="fave" class="fave" :class="{ faved: faved }">
         <unicon
           v-if="faved"
           name="favorite"
@@ -47,10 +46,23 @@ export default {
     },
   },
   methods: {
+    fave() {
+      this.faved = !this.faved;
+      if (this.faved) {
+        this.$store.commit("addFave", this.book);
+      } else {
+        this.$store.commit("removeFave", this.book);
+      }
+
+      // Vuex
+    },
     formatDate(str) {
       const d = new Date(str);
-      const year = d.getFullYear();
+      const year = d.getFullYear(this.book);
       return year;
+    },
+    slug(str) {
+      return str.replace(/\W/g, "-").toLowerCase();
     },
   },
 };

@@ -2,7 +2,12 @@
   <div id="app">
     <div class="exhibit-cta">
       <a href="#"
-        ><i class="fa fa-book" aria-hidden="true"></i>Join the exhibit</a
+        ><unicon
+          name="book-alt"
+          height="1.25em"
+          width="1.25em"
+          fill="#fff"
+        />Join the exhibit</a
       >
     </div>
     <Heading />
@@ -108,8 +113,6 @@ html {
 }
 
 .exhibit-cta {
-  display: flex;
-  align-items: center;
   background-color: #af1f24;
   justify-content: center;
   position: fixed;
@@ -122,6 +125,8 @@ html {
 }
 
 .exhibit-cta a {
+  display: inline-flex;
+  align-items: center;
   font-size: 15px;
   color: #fff;
   text-decoration: none;
@@ -130,8 +135,8 @@ html {
   letter-spacing: 0.2px;
   font-weight: 700;
 }
-.exhibit-cta i {
-  margin-right: 5px;
+.exhibit-cta svg {
+  margin-right: 2px;
 }
 .exhibit-cta:hover {
   background-color: #780000;

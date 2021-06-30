@@ -16,6 +16,11 @@ export default {
   props: {
     books: Array,
   },
+  methods: {
+    alertMe(d) {
+      console.log(d);
+    },
+  },
 };
 </script>
 

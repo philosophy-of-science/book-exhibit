@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <nav>
       <ul class="header-grid">
         <li>
@@ -41,13 +41,18 @@
           /></a>
         </li>
         <li>
-          <a href="#"
-            >Faves<unicon
-              name="check-circle"
+          <button @click="showFaves">
+            Faves<unicon
+              name="favorite"
               height="1em"
               width="1em"
               fill="var(--charcoal-400)"
-          /></a>
+              v-if="!faves"
+            />
+            <span v-if="faves" style="color: var(--teal-500); margin-left: 3px"
+              >{{ faves }}
+            </span>
+          </button>
         </li>
       </ul>
     </nav>
@@ -58,14 +63,44 @@
         <p>20<br />21</p>
       </div>
     </header>
+    <div v-if="favesShown" class="faves">
+      <p v-if="!faves">No faves yet!</p>
+      <Books :books="this.$store.state.faves" />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Books from "./Books.vue";
+export default {
+  components: {
+    Books,
+  },
+  data() {
+    return {
+      favesShown: false,
+    };
+  },
+  computed: {
+    faves() {
+      return this.$store.state.faves.length;
+    },
+  },
+  methods: {
+    showFaves() {
+      this.favesShown = !this.favesShown;
+    },
+  },
+};
 </script>
 
 <style scoped>
+.container {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 .header-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -90,10 +125,8 @@ h1 {
   line-height: 1.2;
   flex: 1;
 }
-p {
-}
 
-p:last-of-type {
+.header-virtual-book-exhibit p:last-of-type {
   font-size: 30px;
   padding-left: 0;
   color: var(--red-500);
@@ -105,7 +138,8 @@ header {
 nav ul {
   list-style-type: none;
 }
-nav a {
+nav a,
+nav button {
   padding: 10px;
   color: inherit;
   text-align: center;
@@ -122,16 +156,23 @@ nav a {
   font-weight: 700;
   letter-spacing: 0.3px;
   transition: background-color 0.2s;
-  /* line-height: 1; */
+  line-height: 1;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
 }
 
-nav a div {
+nav a div,
+nav button div {
   margin-left: 3px;
   transform: translateY(1px);
   color: var(--charcoal-400);
 }
 
-nav a:hover {
+nav a:hover,
+nav button:hover {
   background-color: var(--silver-500);
 }
 </style>
