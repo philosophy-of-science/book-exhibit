@@ -8,6 +8,12 @@ const store = new Vuex.Store({
     faves: [],
   },
 
+  getters: {
+    isAFave: (state) => (title) => {
+      return state.faves.find((book) => book.title === title);
+    },
+  },
+
   mutations: {
     addFave(state, payload) {
       state.faves.push(payload);
@@ -18,7 +24,7 @@ const store = new Vuex.Store({
         (item) => item.title !== payload.title
       );
 
-      state.faves = filtered;
+      state.faves = [...filtered];
       localStorage.setItem("faves", JSON.stringify(state.faves));
     },
   },

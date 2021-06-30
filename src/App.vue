@@ -56,6 +56,12 @@ export default {
   --padding: 1.25rem;
 
   --bb: 1px solid var(--silver-600);
+
+  --radius: 2em;
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 html {
@@ -149,11 +155,5 @@ html {
   font-weight: 700;
   letter-spacing: 0.2px;
   border-bottom: 1px solid var(--silver-600);
-}
-
-.unicon {
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
 }
 </style>

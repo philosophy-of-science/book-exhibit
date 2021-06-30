@@ -3,55 +3,62 @@
     <nav>
       <ul class="header-grid">
         <li>
-          <a href="https://philsci.org"
-            >PSA
+          <a href="https://philsci.org">
             <unicon
-              name="external-link-alt"
+              name="home"
               height="1em"
               width="1em"
               fill="var(--charcoal-400)"
-          /></a>
+            />PSA</a
+          >
         </li>
         <li>
-          <a href="#"
-            >Meeting
+          <a href="#">
             <unicon
               name="meeting-board"
               height="1em"
               width="1em"
               fill="var(--charcoal-400)"
-          /></a>
+            />Meeting</a
+          >
         </li>
         <li>
           <a href="#"
-            >Donate<unicon
+            ><unicon
               name="heart"
               height="1em"
               width="1em"
               fill="var(--charcoal-400)"
-          /></a>
+            />Donate</a
+          >
         </li>
         <li>
           <a href="#"
-            >Journal<unicon
+            ><unicon
               name="file-alt"
               height="1em"
               width="1em"
               fill="var(--charcoal-400)"
-          /></a>
+            />Journal</a
+          >
         </li>
         <li>
           <button @click="showFaves">
-            Faves<unicon
+            <unicon
+              v-if="!faves"
               name="favorite"
               height="1em"
               width="1em"
               fill="var(--charcoal-400)"
-              v-if="!faves"
             />
-            <span v-if="faves" style="color: var(--teal-500); margin-left: 3px"
-              >{{ faves }}
-            </span>
+            <unicon
+              v-if="faves"
+              name="favorite"
+              icon-style="monochrome"
+              width="1em"
+              height="1em"
+              fill="var(--teal-500)"
+            />Faves
           </button>
         </li>
       </ul>
@@ -65,7 +72,15 @@
     </header>
     <div v-if="favesShown" class="faves">
       <p v-if="!faves">No faves yet!</p>
-      <Books :books="this.$store.state.faves" />
+      <Books :books="this.$store.state.faves" :areFaves="true" />
+      <button class="btn-cta" v-if="faves" @click="downloadFaves">
+        <unicon
+          name="file-download-alt"
+          height="1.25em"
+          width="1.25em"
+          fill="#fff"
+        />Download Faves
+      </button>
     </div>
   </div>
 </template>
@@ -90,6 +105,32 @@ export default {
     showFaves() {
       this.favesShown = !this.favesShown;
     },
+    downloadFaves() {
+      const filename = "PSA Book Exhibit Faves";
+
+      const textArr = this.$store.state.faves.map((book, i) => {
+        return `${i + 1}. ${book.author}, ${book.title} (${book.publisher}, ${
+          book.date
+        }). ${book.link}\n`;
+      });
+      textArr.push(
+        `\n\n\nSaved from the PSA 2021 Virtual Book Exhibit on ${new Date().toLocaleDateString()}`
+      );
+      const text = textArr.join("\n");
+      var element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+      );
+      element.setAttribute("download", filename);
+
+      element.style.display = "none";
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    },
   },
 };
 </script>
@@ -97,8 +138,8 @@ export default {
 <style scoped>
 .container {
   background: #fff;
-  position: sticky;
-  top: 0;
+  /* position: sticky; */
+  /* top: 0; */
   z-index: 1000;
 }
 .header-grid {
@@ -112,6 +153,7 @@ h1 {
   grid-column: 1 / 5;
   font-family: Raleway;
 }
+
 .header-virtual-book-exhibit {
   display: flex;
   grid-column: 5/-1;
@@ -121,13 +163,13 @@ h1 {
   padding: var(--padding);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1rem;
   line-height: 1.2;
   flex: 1;
 }
 
 .header-virtual-book-exhibit p:last-of-type {
-  font-size: 30px;
+  font-size: 1.5rem;
   padding-left: 0;
   color: var(--red-500);
 }
@@ -138,18 +180,18 @@ header {
 nav ul {
   list-style-type: none;
 }
+
+nav li {
+  text-align: center;
+  display: inline-flex;
+}
+
 nav a,
 nav button {
-  padding: 10px;
+  padding: calc(var(--padding) / 2);
   color: inherit;
   text-align: center;
   text-decoration: none;
-  /* border: 1px solid var(--silver-600); */
-  border-left: none;
-  border-bottom: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--charcoal-400);
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -166,13 +208,41 @@ nav button {
 
 nav a div,
 nav button div {
-  margin-left: 3px;
-  transform: translateY(1px);
+  margin-right: 4px;
+  /*  transform: translateY(1px); */
   color: var(--charcoal-400);
+  position: relative;
+  top: 1px;
 }
 
 nav a:hover,
 nav button:hover {
   background-color: var(--silver-500);
+}
+
+.btn-cta {
+  font-size: 0.8rem;
+  font-family: inherit;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: calc(var(--padding) / 2) var(--padding);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--red-500);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cta:hover {
+  background-color: var(--red-600);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-cta div {
+  position: relative;
+  top: 3px;
+  margin-right: 4px;
 }
 </style>

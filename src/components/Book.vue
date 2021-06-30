@@ -1,7 +1,10 @@
 <template>
   <div class="book-item" :id="slug(book.title)">
     <div class="book-cover">
-      <img :src="book.cover" :alt="book.title" />
+      <img
+        :src="require(`../assets/covers/${book.cover}-cover.jpg`)"
+        :alt="book.title"
+      />
       <button @click="fave" class="fave" :class="{ faved: faved }">
         <unicon
           v-if="faved"
@@ -31,13 +34,14 @@
 export default {
   props: {
     book: Object,
+    areFaves: Boolean,
   },
-  data() {
-    return {
-      faved: false,
-    };
-  },
+
   computed: {
+    faved() {
+      console.log(this.$store.getters.isAFave(this.$props.book.title));
+      return this.$store.getters.isAFave(this.$props.book.title);
+    },
     filled() {
       if (this.faved) {
         return "var(--red-500)";
@@ -47,8 +51,7 @@ export default {
   },
   methods: {
     fave() {
-      this.faved = !this.faved;
-      if (this.faved) {
+      if (!this.faved) {
         this.$store.commit("addFave", this.book);
       } else {
         this.$store.commit("removeFave", this.book);

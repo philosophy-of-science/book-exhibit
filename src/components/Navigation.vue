@@ -8,6 +8,7 @@
         :href="'#' + exhibitor.slug"
         >{{ exhibitor.publisher }}</a
       >
+      <a href="https://psa2020.philsci.org/exhibit">Join the Exhibit</a>
     </nav>
   </section>
 </template>
@@ -22,8 +23,8 @@ export default {
 
 <style scoped>
 .exhibitor-toc {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   border-bottom: 1px solid var(--silver-600);
 }

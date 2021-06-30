@@ -1,7 +1,7 @@
 <template>
   <div v-if="books" class="books-container">
     <article v-for="(book, idx) in books" :key="idx">
-      <Book :book="book" />
+      <Book :book="book" :areFaves="areFaves" />
     </article>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
 
   props: {
     books: Array,
+    areFaves: Boolean,
   },
   methods: {
     alertMe(d) {

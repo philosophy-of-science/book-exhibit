@@ -16,6 +16,8 @@ import {
   uniFavoriteMonochrome,
   uniFavorite,
   uniBookAlt,
+  uniFileDownloadAlt,
+  uniHome,
 } from "vue-unicons/dist/icons";
 
 Unicon.add([
@@ -31,6 +33,8 @@ Unicon.add([
   uniFavoriteMonochrome,
   uniFavorite,
   uniBookAlt,
+  uniFileDownloadAlt,
+  uniHome,
 ]);
 Vue.use(Unicon);
 Vue.config.productionTip = false;
