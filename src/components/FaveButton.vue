@@ -67,6 +67,7 @@ button {
   line-height: 1;
   display: inline-flex;
   align-items: center;
+  z-index: 1000;
 }
 
 button:hover {

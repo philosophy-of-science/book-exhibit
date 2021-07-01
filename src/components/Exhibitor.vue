@@ -144,6 +144,12 @@ header {
 
 @media (min-width: 768px) {
   header {
+    grid-template-columns: min-content auto auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
     grid-template-columns: min-content max-content auto;
   }
 }

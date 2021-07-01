@@ -28,21 +28,15 @@ export default {
 <style scoped>
 .books-container {
   display: grid;
-  gap: calc(var(--padding) * 2);
   grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
-  justify-content: center;
+  /* justify-content: center; */
   padding: var(--padding);
+  gap: calc(var(--padding) * 2);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .books-container {
     grid-template-columns: 1fr 1fr;
   }
 }
-/* 
-@media (min-width: 1024px) {
-  .books-container {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-} */
 </style>

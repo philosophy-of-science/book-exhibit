@@ -17,7 +17,6 @@
       <h2 class="about" v-else>Favorites</h2>
     </header>
 
-    <Books :books="this.$store.state.faves" :areFaves="true" />
     <div class="btn-container" v-if="faves">
       <button class="btn-cta" @click="downloadFaves">
         <unicon
@@ -52,6 +51,8 @@
         />Close
       </button>
     </div>
+
+    <Books :books="this.$store.state.faves" :areFaves="true" />
   </div>
 </template>
 
@@ -160,6 +161,7 @@ h2 + p > div {
 
 .btn-container {
   display: flex;
+  flex-wrap: wrap;
   margin: var(--padding) 0;
   padding: var(--padding);
   justify-content: center;

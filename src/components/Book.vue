@@ -39,7 +39,7 @@
         /></a>
       </h3>
       <p>{{ book.author }}</p>
-      <p>{{ book.publisher }} {{ formatDate(book.date) }}</p>
+      <p>{{ book.publisher }} {{ book.date }}</p>
     </div>
   </div>
 </template>
@@ -70,13 +70,6 @@ export default {
       } else {
         this.$store.commit("removeFave", this.book);
       }
-
-      // Vuex
-    },
-    formatDate(str) {
-      const d = new Date(str);
-      const year = d.getFullYear(this.book);
-      return year;
     },
     slug(str) {
       return str.replace(/\W/g, "-").toLowerCase();
@@ -94,24 +87,17 @@ export default {
 .book-text {
   display: block;
   position: relative;
-  width: 150px;
-  height: 234px;
+  width: 175px;
+  height: 261px;
 }
 @media (min-width: 768px) {
   .book-cover,
   .book-text {
-    width: 175px;
-    height: 273px;
+    width: 200px;
+    height: 298px;
   }
 }
 
-@media (min-width: 1024px) {
-  .book-cover,
-  .book-text {
-    width: 200px;
-    height: 312px;
-  }
-}
 .book-cover img {
   position: relative;
   width: 100%;
