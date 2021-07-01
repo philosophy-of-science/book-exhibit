@@ -92,11 +92,10 @@ export default {
 }
 .book-cover,
 .book-text {
-  position: relative;
   display: block;
+  position: relative;
   width: 150px;
   height: 234px;
-  /* overflow: hidden; */
 }
 @media (min-width: 768px) {
   .book-cover,
@@ -114,29 +113,26 @@ export default {
   }
 }
 .book-cover img {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  position: relative;
 }
 
 .book-text {
-  flex-grow: 1;
-
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  /* padding: var(--padding); */
 }
 
 .book-text h3 {
-  font-size: 1rem;
-  padding: var(--padding) var(--padding) 0;
   display: -webkit-box;
+  padding: var(--padding) var(--padding) 0;
+  overflow: hidden;
+  font-size: 1rem;
+  line-height: 1.3;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  line-height: 1.3;
 }
 
 .book-text a {
@@ -153,41 +149,40 @@ export default {
 }
 
 .book-text p {
-  font-size: 0.9rem;
   margin-top: 0.5em;
   padding: 0 var(--padding) var(--padding);
+  font-size: 0.9rem;
   line-height: 1.3;
 }
 .book-text p:last-of-type {
   margin-top: auto;
   font-size: 12px;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.2px;
-  line-height: 1.4;
 }
 
 .fave {
-  background: none;
-  border: none;
+  display: flex;
+  z-index: 500;
   position: absolute;
   right: 0;
   bottom: 25%;
-  transform: translate(50%, 0);
-  cursor: pointer;
-  line-height: 1;
-  padding: calc(var(--padding) / 2);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  transition: background-color 0.2s, box-shadow 0.2s;
-  /* width: 100%; */
-  background: rgba(255, 255, 255, 0.5);
-  font-weight: 700;
-  color: var(--charcoal-500);
-  backdrop-filter: blur(10px);
+  align-items: center;
+  padding: calc(var(--padding) / 2);
+  border: none;
   border-radius: 50%;
+  color: var(--charcoal-500);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  background: rgba(255, 255, 255, 0.5);
   box-shadow: var(--shadow-md);
-  /* border-top-left-radius: 5px; */
+  transition: background-color 0.2s, box-shadow 0.2s;
+  transform: translate(50%, 0);
+  backdrop-filter: blur(10px);
 }
 
 .fave span {
