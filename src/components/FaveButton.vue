@@ -1,21 +1,28 @@
 <template>
   <div>
     <button @click="showFaves">
-      <unicon
-        v-if="!faves"
-        name="favorite"
-        height="2rem"
-        width="2rem"
-        fill="var(--charcoal-400)"
-      />
-      <unicon
-        v-if="faves"
-        name="favorite"
-        icon-style="monochrome"
-        width="2rem"
-        height="2rem"
-        fill="var(--teal-500)"
-      />
+      <transition name="fade" mode="out-in">
+        <unicon
+          v-if="!faves"
+          name="bookmark"
+          height="1.25em"
+          width="1.25em"
+          fill="var(--charcoal-500)"
+          key="noFave"
+        />
+        <unicon
+          v-else
+          name="bookmark"
+          icon-style="monochrome"
+          width="1.25em"
+          height="1.25em"
+          fill="var(--charcoal-500)"
+          key="faved"
+        />
+      </transition>
+      Favorites
+
+      <span>{{ this.$store.state.faves.length }}</span>
     </button>
   </div>
 </template>
@@ -39,32 +46,62 @@ export default {
 button {
   display: flex;
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  justify-content: center;
-  align-items: center;
-  padding: calc(var(--padding) / 2);
-  border: 1px solid var(--silver-600);
-  border-radius: 50%;
-  color: var(--charcoal);
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-  background: none;
-  background: rgba(235, 235, 235, 0.25);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.2s, box-shadow 0.2s;
+  right: 2rem;
+  bottom: 2rem;
 
   backdrop-filter: blur(10px);
+  padding: calc(var(--padding) / 2) var(--padding);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--charcoal-500);
+  box-shadow: var(--shadow);
+  transition: background-color 0.2s;
+  border: 1px solid;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 button:hover {
-  background-color: rgba(235, 235, 235, 0.95);
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-lg);
 }
 
 button:active {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
+}
+
+button div {
+  position: relative;
+  /* top: 1px; */
+  margin-right: 0.5em;
+}
+
+button span {
+  color: var(--red-500);
+  margin-left: 0.5em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Transition  */
+.fade-enter-active {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.fade-leave-active {
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(0.5em);
 }
 </style>

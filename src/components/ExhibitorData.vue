@@ -25,15 +25,33 @@ import Exhibitor from "./Exhibitor.vue";
 import Navigation from "./Navigation.vue";
 
 export default {
+  name: "exhibitor-data",
+
   components: {
     Exhibitor,
     Navigation,
   },
+
   data() {
     return {
       exhibitorRawData: [],
+      scrollPos: null,
     };
   },
+
+  beforeDestroy() {
+    console.log("destory");
+    this.$store.commit("setScrollPos", window.scrollY);
+    document.documentElement.style.scrollBehavior = "auto";
+  },
+
+  mounted() {
+    if (this.$store.state.scrollPos) {
+      document.documentElement.scrollTop = this.$store.state.scrollPos;
+      document.documentElement.style.scrollBehavior = "smooth";
+    }
+  },
+
   async created() {
     // const URL =
     //   "https://sheet2api.com/v1/KTEHbpbTB6Kc/virtual-book-exhibit-psa-2021-2021-06/books";
@@ -80,7 +98,15 @@ export default {
         {}
       );
 
-      return exhibitDataFormatted;
+      return Object.values(exhibitDataFormatted).sort((a, b) => {
+        if (a.slug > b.slug) {
+          return 1;
+        }
+
+        if (a.slug < b.slug) {
+          return -1;
+        }
+      });
     },
   },
 };

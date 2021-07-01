@@ -6,40 +6,41 @@
           <a href="https://philsci.org">
             <unicon
               name="home"
-              height="1em"
-              width="1em"
+              height="1.25em"
+              width="1.25em"
               fill="var(--charcoal-400)"
             />PSA</a
           >
         </li>
         <li>
-          <a href="#">
+          <a href="https://psa2020.philsci.org">
             <unicon
               name="meeting-board"
-              height="1em"
-              width="1em"
+              height="1.25em"
+              width="1.25em"
               fill="var(--charcoal-400)"
             />Meeting</a
           >
         </li>
         <li>
-          <a href="#"
+          <a href="https://mms.philsci.org/members/wish/donate.php?org_id=PSA"
             ><unicon
               name="heart"
-              height="1em"
-              width="1em"
+              height="1.25em"
+              width="1.25em"
               fill="var(--charcoal-400)"
             />Donate</a
           >
         </li>
         <li>
-          <a href="#"
+          <a href="https://philsci.org/membership.php"
             ><unicon
-              name="file-alt"
-              height="1em"
-              width="1em"
-              fill="var(--charcoal-400)"
-            />Journal</a
+              name="circle-layer"
+              icon-style="monochrome"
+              height="1.25em"
+              width="1.25em"
+              fill="var(--red-500)"
+            />Join</a
           >
         </li>
       </ul>
@@ -116,8 +117,8 @@ nav button {
 nav a div,
 nav button div {
   position: relative;
-  top: 1px;
-  margin-right: 4px;
+  top: 0.22em;
+  margin-right: 0.5em;
   color: var(--charcoal-400);
   /*  transform: translateY(1px); */
 }

@@ -29,7 +29,20 @@ export default {
 .books-container {
   display: grid;
   gap: calc(var(--padding) * 2);
-  grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+  justify-content: center;
   padding: var(--padding);
 }
+
+@media (min-width: 768px) {
+  .books-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* 
+@media (min-width: 1024px) {
+  .books-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+} */
 </style>

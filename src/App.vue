@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <Heading />
-    <exhibitor-data />
+    <transition name="fade" mode="out-in">
+      <exhibitor-data v-if="!this.$store.state.favesShown" />
+      <fave-bar v-else />
+    </transition>
     <fave-button />
-    <fave-bar />
   </div>
 </template>
 
@@ -55,9 +57,11 @@ export default {
 
   --radius: 2em;
 
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-md: 4px 6px -1px rgba(0, 0, 0, 0.1),
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
   --sm: 640px;
   --md: 768px;
@@ -128,5 +132,20 @@ html {
   font-weight: 700;
   letter-spacing: 0.2px;
   border-bottom: 1px solid var(--silver-600);
+}
+
+/* Transition  */
+.fade-enter-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.fade-leave-active {
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(var(--padding));
 }
 </style>

@@ -1,28 +1,56 @@
 <template>
-  <div class="container" v-if="this.$store.state.favesShown">
-    <div class="inner-container">
-      <button class="close-btn" @click="closeFaves">
+  <div class="container" id="fave-bar">
+    <header>
+      <div v-if="!faves">
+        <h2 class="about">No favorites yet!</h2>
+        <p>
+          Click the bookmark
+          <unicon
+            name="bookmark"
+            height="1em"
+            width="1em"
+            color="currentColor"
+          />
+          to start saving.
+        </p>
+      </div>
+      <h2 class="about" v-else>Favorites</h2>
+    </header>
+
+    <Books :books="this.$store.state.faves" :areFaves="true" />
+    <div class="btn-container" v-if="faves">
+      <button class="btn-cta" @click="downloadFaves">
+        <unicon
+          name="file-download-alt"
+          height="1.25em"
+          width="1.25em"
+          fill="var(--charcoal-500)"
+        />Download Faves
+      </button>
+      <button class="btn-cta" v-if="!copied" @click="copyToClipboard">
+        <unicon
+          name="clipboard"
+          height="1.25em"
+          width="1.25em"
+          fill="var(--charcoal-500)"
+        />Copy to Clipboard
+      </button>
+      <button class="btn-cta" v-if="copied" @click="copyToClipboard">
+        <unicon
+          name="clipboard-notes"
+          height="1.25em"
+          width="1.25em"
+          fill="var(--charcoal-500)"
+        />Copied to Clipboard!
+      </button>
+      <button class="btn-cta" @click="closeFaves">
         <unicon
           name="times-circle"
+          height="1.25em"
+          width="1.25em"
           fill="var(--red-500)"
-          hover-fill="var(--red-600)"
-          height="2rem"
-          width="2rem"
-        />
+        />Close
       </button>
-      <p v-if="!faves">No faves yet! Click the star to start saving.</p>
-      <div class="btn-container">
-        <button class="btn-cta" v-if="faves" @click="downloadFaves">
-          <unicon
-            name="file-download-alt"
-            height="1.25em"
-            width="1.25em"
-            fill="var(--charcoal-500)"
-          />Download Faves
-        </button>
-      </div>
-
-      <Books :books="this.$store.state.faves" :areFaves="true" />
     </div>
   </div>
 </template>
@@ -31,23 +59,23 @@
 import Books from "./Books.vue";
 
 export default {
+  name: "fave-bar",
+
   components: {
     Books,
+  },
+
+  data() {
+    return {
+      copied: false,
+    };
   },
 
   computed: {
     faves() {
       return this.$store.state.faves.length;
     },
-  },
-
-  methods: {
-    closeFaves() {
-      this.$store.commit("toggleFaves");
-    },
-    downloadFaves() {
-      const filename = "PSA Book Exhibit Faves";
-
+    list() {
       const textArr = this.$store.state.faves.map((book, i) => {
         return `${i + 1}. ${book.author}, ${book.title} (${book.publisher}, ${
           book.date
@@ -57,10 +85,31 @@ export default {
         `\n\n\nSaved from the PSA 2021 Virtual Book Exhibit on ${new Date().toLocaleDateString()}`
       );
       const text = textArr.join("\n");
+      return text;
+    },
+  },
+
+  methods: {
+    closeFaves() {
+      this.$store.commit("toggleFaves");
+    },
+    copyToClipboard() {
+      const el = document.createElement("textarea");
+      el.value = this.list;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand("copy");
+      document.body.removeChild(el);
+      this.copied = true;
+      setTimeout(() => (this.copied = false), 2000);
+    },
+    downloadFaves() {
+      const filename = "PSA Book Exhibit Faves";
+
       var element = document.createElement("a");
       element.setAttribute(
         "href",
-        "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+        "data:text/plain;charset=utf-8," + encodeURIComponent(this.list)
       );
       element.setAttribute("download", filename);
 
@@ -72,32 +121,36 @@ export default {
       document.body.removeChild(element);
     },
   },
+
+  mounted() {
+    document.documentElement.scrollTop = 0;
+  },
 };
 </script>
 
 <style scoped>
 .container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(15px);
-}
-
-.inner-container {
-  background: #fff;
-  padding: var(--padding);
   max-width: 1024px;
   margin: 1rem auto;
-  min-height: 30vh;
-  box-shadow: var(--shadow-sm);
-  max-height: calc(100% - 2rem);
-  overflow: auto;
+  min-height: 100vh;
 }
 
+header {
+  margin: calc(6 * var(--padding)) auto var(--padding);
+}
+
+h2 + p {
+  padding: var(--padding);
+}
+
+h2 + p > div {
+  position: relative;
+  top: 0.1em;
+}
+/* header h2 {
+  border-bottom: var(--bb);
+  padding-bottom: var(--padding);
+} */
 .close-btn {
   background: none;
   border: none;
@@ -106,7 +159,11 @@ export default {
 }
 
 .btn-container {
+  display: flex;
+  margin: var(--padding) 0;
   padding: var(--padding);
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-cta {
@@ -121,19 +178,34 @@ export default {
   cursor: pointer;
   background-color: #fff;
   color: var(--charcoal-500);
-  box-shadow: var(--shadow-sm);
-  transition: background-color 0.2s;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
   border: 1px solid;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-cta:not(last-child) {
+  margin-right: 1rem;
+}
+
+.btn-cta:last-child {
+  color: var(--red-500);
 }
 
 .btn-cta:hover {
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-cta:active {
   box-shadow: var(--shadow-md);
 }
 
 .btn-cta div {
   position: relative;
-  top: 3px;
-  margin-right: 4px;
+  /* top: 0.22em; */
+  margin-right: 0.5em;
 }
 </style>

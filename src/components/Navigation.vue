@@ -8,7 +8,7 @@
         :href="'#' + exhibitor.slug"
         >{{ exhibitor.publisher }}</a
       >
-      <a href="https://psa2020.philsci.org/exhibit">Join the Exhibit</a>
+      <a href="https://psa2020.philsci.org/exhibit">Exhibit with Us</a>
     </nav>
   </section>
 </template>
@@ -16,7 +16,7 @@
 <script>
 export default {
   props: {
-    exhibitors: Object,
+    exhibitors: Array,
   },
 };
 </script>

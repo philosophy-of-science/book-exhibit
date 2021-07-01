@@ -7,6 +7,7 @@ const store = new Vuex.Store({
   state: {
     faves: [],
     favesShown: false,
+    scrollPos: null,
   },
 
   getters: {
@@ -30,6 +31,9 @@ const store = new Vuex.Store({
     },
     toggleFaves(state) {
       state.favesShown = !state.favesShown;
+    },
+    setScrollPos(state, payload) {
+      state.scrollPos = payload;
     },
   },
 });

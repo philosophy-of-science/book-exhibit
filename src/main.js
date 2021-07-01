@@ -19,6 +19,11 @@ import {
   uniFileDownloadAlt,
   uniHome,
   uniTimesCircle,
+  uniClipboard,
+  uniClipboardNotes,
+  uniBookmarkMonochrome,
+  uniBookmark,
+  uniCircleLayerMonochrome,
 } from "vue-unicons/dist/icons";
 
 Unicon.add([
@@ -37,6 +42,11 @@ Unicon.add([
   uniFileDownloadAlt,
   uniHome,
   uniTimesCircle,
+  uniClipboard,
+  uniClipboardNotes,
+  uniBookmarkMonochrome,
+  uniBookmark,
+  uniCircleLayerMonochrome,
 ]);
 Vue.use(Unicon);
 Vue.config.productionTip = false;

@@ -6,22 +6,36 @@
         :alt="book.title"
       />
       <button @click="fave" class="fave" :class="{ faved: faved }">
-        <unicon
-          v-if="faved"
-          name="favorite"
-          icon-style="monochrome"
-          width="1.5rem"
-          height="1.5rem"
-          fill="var(--teal-500)"
-        />
-        <unicon v-if="!faved" name="favorite" width="1.5rem" height="1.5rem" />
+        <transition name="fade" mode="out-in">
+          <unicon
+            key="faved"
+            v-if="faved"
+            name="bookmark"
+            icon-style="monochrome"
+            width="1.5rem"
+            height="1.5rem"
+            fill="var(--charcoal-500)"
+          />
+          <unicon
+            key="unfaved"
+            v-else
+            name="bookmark"
+            width="1.5rem"
+            height="1.5rem"
+            fill="var(--charcoal-500)"
+          />
+        </transition>
       </button>
     </div>
     <div class="book-text">
       <h3>
         <a :href="book.link"
           >{{ book.title
-          }}<unicon name="external-link-alt" height=".8em" width=".8em"
+          }}<unicon
+            name="external-link-alt"
+            height=".8em"
+            width=".8em"
+            fill="var(--charcoal-500)"
         /></a>
       </h3>
       <p>{{ book.author }}</p>
@@ -76,14 +90,29 @@ export default {
   display: flex;
   background: hsl(0, 0%, 98%);
 }
-.book-cover {
+.book-cover,
+.book-text {
   position: relative;
   display: block;
-  width: 200px;
-  height: 312.5px;
+  width: 150px;
+  height: 234px;
   /* overflow: hidden; */
 }
+@media (min-width: 768px) {
+  .book-cover,
+  .book-text {
+    width: 175px;
+    height: 273px;
+  }
+}
 
+@media (min-width: 1024px) {
+  .book-cover,
+  .book-text {
+    width: 200px;
+    height: 312px;
+  }
+}
 .book-cover img {
   width: 100%;
   height: 100%;
@@ -95,8 +124,6 @@ export default {
 .book-text {
   flex-grow: 1;
 
-  width: 200px;
-  height: 312.5px;
   display: flex;
   flex-direction: column;
   /* padding: var(--padding); */
@@ -156,11 +183,10 @@ export default {
   /* width: 100%; */
   background: rgba(255, 255, 255, 0.5);
   font-weight: 700;
-  color: var(--charcoal);
+  color: var(--charcoal-500);
   backdrop-filter: blur(10px);
   border-radius: 50%;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
   /* border-top-left-radius: 5px; */
 }
 
@@ -171,16 +197,29 @@ export default {
 }
 .fave:hover {
   background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-lg);
 }
 
 .fave:active {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow);
 }
 
 .faved {
   background: rgba(255, 255, 255, 0.75);
 }
-.fave svg {
+
+/* Transition  */
+.fade-enter-active {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.fade-leave-active {
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(0.5em);
 }
 </style>
