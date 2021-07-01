@@ -189,7 +189,7 @@ h2 + p > div {
 }
 
 .btn-cta:not(last-child) {
-  margin-right: 1rem;
+  margin: 0 var(--padding) var(--padding) 0;
 }
 
 .btn-cta:last-child {
