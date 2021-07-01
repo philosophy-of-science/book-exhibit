@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FILES="*.jpg *.png *.jpeg *.gif"
+
+for f in $FILES
+do
+	echo "Processing ${f%.*}"
+	convert $f -resize 100x100 ${f%.*}-logo.png
+
+done

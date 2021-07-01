@@ -2,7 +2,12 @@
   <div :id="slug" class="exhibitor-container">
     <header>
       <div v-if="logo" class="exhibitor-logo">
-        <img :src="logo" :alt="publisher" width="100" height="100" />
+        <img
+          :src="require(`../assets/logos/${slug}-logo.png`)"
+          :alt="publisher"
+          width="100"
+          height="100"
+        />
       </div>
       <div class="exhibitor-name">
         <h2>{{ publisher }}</h2>
