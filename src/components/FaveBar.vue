@@ -137,11 +137,11 @@ export default {
 }
 
 header {
-  margin: calc(6 * var(--padding)) auto var(--padding);
+  margin: 3rem auto var(--spacing);
 }
 
 h2 + p {
-  padding: var(--padding);
+  padding: var(--spacing) var(--spacing-2x);
 }
 
 h2 + p > div {
@@ -150,7 +150,7 @@ h2 + p > div {
 }
 /* header h2 {
   border-bottom: var(--bb);
-  padding-bottom: var(--padding);
+  padding-bottom: var(--spacing);
 } */
 .close-btn {
   background: none;
@@ -162,14 +162,14 @@ h2 + p > div {
 .btn-container {
   display: flex;
   flex-wrap: wrap;
-  margin: var(--padding) 0;
-  padding: var(--padding);
+  margin: var(--spacing) 0;
+  padding: var(--spacing);
   justify-content: center;
   align-items: center;
 }
 
 .btn-cta {
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: var(--spacing-half) var(--spacing);
   border: none;
   border-radius: var(--radius);
   color: #fff;
@@ -189,7 +189,7 @@ h2 + p > div {
 }
 
 .btn-cta:not(last-child) {
-  margin: 0 var(--padding) var(--padding) 0;
+  margin: 0 var(--spacing) var(--spacing) 0;
 }
 
 .btn-cta:last-child {

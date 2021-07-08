@@ -30,8 +30,9 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
   /* justify-content: center; */
-  padding: var(--padding);
-  gap: calc(var(--padding) * 2);
+  padding: var(--spacing-2x);
+  gap: var(--spacing-2x);
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {

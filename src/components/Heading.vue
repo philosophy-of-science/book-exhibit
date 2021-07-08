@@ -1,7 +1,15 @@
 <template>
   <div class="container">
     <nav>
-      <ul class="header-grid">
+      <div class="mobile">
+        <a href="https://philsci.org">
+          <img :src="require('../assets/logo.png')" alt="PSA homepage" />
+        </a>
+        <button @click="showMenu = !showMenu" :class="{ close: showMenu }">
+          <span></span>
+        </button>
+      </div>
+      <ul class="header-grid" v-if="showMenu">
         <li>
           <a href="https://philsci.org">
             <unicon
@@ -45,46 +53,168 @@
         </li>
       </ul>
     </nav>
-    <header class="header-grid">
-      <h1>Philosophy of Science Association</h1>
-      <div class="header-stacked-text">
-        <p>Virtual<br />Book<br />Exhibit</p>
-        <p>20<br />21</p>
+    <header class="header">
+      <div class="header-img-block">
+        <img :src="require('../assets/logo-2.png')" alt="PSA Logo" />
+        <h1>Philosophy of Science<br />Association</h1>
       </div>
+      <p class="subheader">Virtual Book Exhibit <span>2021</span></p>
     </header>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      showMenu: false,
+    };
+  },
+  mounted() {
+    const showMenuBasedOnWidth = () => {
+      const clientWidth = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      );
+      if (clientWidth < 768) {
+        this.showMenu = false;
+      } else {
+        this.showMenu = true;
+      }
+    };
+    showMenuBasedOnWidth();
+    window.onresize = showMenuBasedOnWidth;
+  },
+};
 </script>
 
 <style scoped>
 .container {
   z-index: 1000;
   background: #fff;
-  /* position: sticky; */
-  /* top: 0; */
+  overflow: hidden;
 }
 
 .header-grid {
+  background-color: #fff;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
   display: grid;
+}
+
+.header-grid {
+  position: fixed;
+  top: calc(32px + var(--spacing-2x));
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  right: 0;
 }
 
 @media (min-width: 768px) {
   .header-grid {
-    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    top: initial;
+    right: initial;
   }
 }
 
-/* Top bar  */
-
-nav,
-header {
-  border-bottom: 1px solid var(--silver-600);
+.mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing) var(--spacing-2x);
 }
+
+.mobile a,
+.mobile img {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.mobile button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.mobile button.close span {
+  height: 0;
+}
+
+.mobile button.close span::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile button.close span::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile button:hover span::before {
+  transform: translateY(2px);
+}
+
+.mobile button:hover span::after {
+  transform: translateY(-2px);
+}
+
+.mobile button.close:hover span::before {
+  transform: translateY(8px) rotate(45deg);
+  background-color: var(--red-500);
+}
+
+.mobile button.close:hover span::after {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: var(--red-500);
+}
+
+.mobile span {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 16px;
+  height: 3px;
+  width: 32px;
+  border-radius: var(--radius);
+  background-color: var(--charcoal-400);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.mobile span::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 0;
+  height: 3px;
+  width: 32px;
+  border-radius: var(--radius);
+  background-color: var(--charcoal-400);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.mobile span::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 3px;
+  width: 32px;
+  border-radius: var(--radius);
+  background-color: var(--charcoal-400);
+  transition: transform 0.3s;
+}
+
+@media (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+}
+
 nav ul {
   list-style-type: none;
 }
@@ -94,16 +224,16 @@ nav li {
   text-align: center;
 }
 
-nav a,
-nav button {
+.header-grid a,
+.header-grid button {
   width: 100%;
-  padding: calc(var(--padding) / 2);
+  padding: var(--spacing-half);
   border: none;
   color: inherit;
   color: var(--charcoal-400);
   font-weight: 700;
   font-size: 0.8rem;
-  line-height: 1;
+  /* line-height: 1; */
   font-family: inherit;
   text-align: center;
   text-decoration: none;
@@ -114,8 +244,8 @@ nav button {
   transition: background-color 0.2s;
 }
 
-nav a div,
-nav button div {
+.header-grid a div,
+.header-grid button div {
   position: relative;
   top: 0.22em;
   margin-right: 0.5em;
@@ -123,37 +253,79 @@ nav button div {
   /*  transform: translateY(1px); */
 }
 
-nav a:hover,
-nav button:hover {
+.header-grid a:hover,
+.header-grid button:hover {
   background-color: var(--silver-500);
 }
 
+.header-grid {
+  border-top: var(--bb);
+}
+
+@media (min-width: 768px) {
+  .header-grid {
+    border: none;
+  }
+}
+
 /* Bottom bar  */
+.header {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)),
+    url("../assets/bg.jpg");
+  background-size: cover;
+  padding: var(--spacing-2x);
+  min-height: 31.5rem;
+  /* background: var(--silver-500); */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.header img {
+  width: 6.25rem;
+  height: 6.25rem;
+  object-fit: contain;
+}
 
 h1 {
-  padding: var(--padding);
-  grid-column: 1 / 4;
-  font-family: Raleway;
-  line-height: 1.3;
-}
-
-.header-stacked-text {
-  display: flex;
-  grid-column: 4/-1;
-}
-
-.header-stacked-text p {
-  flex: 1;
-  padding: var(--padding);
-  font-weight: 700;
-  font-size: 1rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 3.75rem;
   line-height: 1.2;
-  text-transform: uppercase;
+  font-family: Raleway;
+  letter-spacing: -0.2px;
 }
 
-.header-stacked-text p:last-of-type {
-  padding-left: 0;
+.subheader {
+  display: inline-block;
   font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.subheader span {
   color: var(--red-500);
+}
+
+.header-img-block {
+  display: flex;
+  align-items: center;
+}
+
+.header-img-block img {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    margin-left: var(--spacing);
+  }
+  .subheader {
+    margin: 0.5em 0 0 calc(6.25rem + var(--spacing));
+  }
+  .header-img-block img {
+    display: block;
+  }
 }
 </style>

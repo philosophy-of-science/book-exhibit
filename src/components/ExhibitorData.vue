@@ -114,7 +114,6 @@ export default {
 
 <style scoped>
 div {
-  max-width: 1024px;
-  margin: calc(6 * var(--padding)) auto;
+  margin: 3rem 0;
 }
 </style>

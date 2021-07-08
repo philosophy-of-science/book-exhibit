@@ -140,11 +140,16 @@ export default {
 </script>
 
 <style scoped>
+.exhibitor-container {
+  margin: 6rem 0;
+}
+
 header {
   display: grid;
   grid-template-columns: min-content auto;
   flex-wrap: wrap;
   border-bottom: var(--bb);
+  border-top: var(--bb);
 }
 
 @media (min-width: 768px) {
@@ -162,7 +167,7 @@ header {
 .exhibitor-logo {
   display: flex;
   align-items: center;
-  padding: var(--padding);
+  padding: var(--spacing) var(--spacing) var(--spacing) var(--spacing-2x);
 }
 
 img {
@@ -172,20 +177,18 @@ img {
 }
 
 .exhibitor-name {
-  padding: var(--padding);
   display: flex;
   align-items: center;
+  padding: var(--spacing) var(--spacing) var(--spacing) 0;
   line-height: 1.3;
-  padding-left: 0;
 }
 
 /* Social Media Icons  */
 .exhibitor-body {
   display: flex;
-
   justify-content: flex-end;
   align-items: center;
-  padding: var(--padding);
+  padding: var(--spacing) var(--spacing-2x) var(--spacing) var(--spacing);
   grid-column: 1 / -1;
 }
 
@@ -196,18 +199,18 @@ img {
 }
 
 .exhibitor-body a {
-  justify-self: center;
-  padding: calc(var(--padding) / 3);
-  margin: calc(var(--padding) / 2);
-  height: 2.5rem;
-  width: 2.5rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  text-decoration: none;
-  border-radius: 50%;
-  transition: background-color 0.2s, color 0.2s;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: var(--spacing-half);
+  padding: calc(var(--spacing) / 3);
   border: 1px solid currentColor;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  justify-self: center;
 }
 
 .exhibitor-body a div {
@@ -263,7 +266,7 @@ img {
 }
 
 .exhibitor-about {
-  padding: calc(3 * var(--padding)) var(--padding) var(--padding);
+  padding: var(--spacing-3x) var(--spacing-2x) var(--spacing);
   border-bottom: 1px solid var(--silver-600);
   font-weight: 700;
   font-size: 115%;
@@ -273,15 +276,19 @@ img {
 
 .exhibitor-description {
   max-width: 66ch;
-  padding: var(--padding);
+  padding: var(--spacing-2x);
 }
 
 @media (min-width: 768px) {
   .exhibitor-description {
     max-width: initial;
     columns: 2 auto;
-    column-gap: calc(var(--padding) * 2);
+    column-gap: var(--spacing-2x);
   }
+}
+
+.exhibitor-description p {
+  hyphens: auto;
 }
 </style>
 

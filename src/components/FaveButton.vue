@@ -50,16 +50,15 @@ button {
   bottom: 2rem;
 
   backdrop-filter: blur(10px);
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: var(--spacing-half) var(--spacing);
   border: none;
   border-radius: var(--radius);
-  color: #fff;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: inherit;
   text-transform: uppercase;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #fff;
   color: var(--charcoal-500);
   box-shadow: var(--shadow);
   transition: background-color 0.2s;
@@ -81,7 +80,7 @@ button:active {
 
 button div {
   position: relative;
-  /* top: 1px; */
+  top: 1px;
   margin-right: 0.5em;
 }
 

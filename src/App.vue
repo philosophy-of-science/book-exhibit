@@ -38,8 +38,10 @@ export default {
 :root {
   --silver-500: #e8e8ea;
   --silver-600: #b6b6b8;
+  --silver-700: #868688;
   --charcoal-400: #646464;
   --charcoal-500: #3a3a3a;
+  --charcoal-600: #141414;
   --red-500: #af1f24;
   --red-600: #780000;
   --teal-300: #9affff;
@@ -51,7 +53,10 @@ export default {
   --instagram: #3f729b;
   --linkedin: #0077b5;
 
-  --padding: 1rem;
+  --spacing-half: 0.5rem;
+  --spacing: 1rem;
+  --spacing-2x: 2rem;
+  --spacing-3x: 3rem;
 
   --bb: 1px solid var(--silver-600);
 
@@ -77,56 +82,31 @@ html {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
-
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
+  background: var(--charcoal-600);
 }
 
 #app {
-  max-width: 1024px;
+  background: #fff;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: calc(2 * var(--padding)) var(--padding);
+  overflow: hidden;
 }
 
-.exhibit-title {
-  border: 1px solid var(--silver-600);
-  margin: 20px 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.exhibit-title-logo {
-  position: relative;
-  border-right: 1px solid var(--silver-600);
-  display: flex;
-  padding: var(--padding);
-  align-items: center;
-}
-
-.exhibit-title-logo img {
-  height: 50px;
-  width: 50px;
-  margin-right: 10px;
-}
-
-.exhibit-title h1 {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Raleway, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 0.2px;
 }
-
-.exhibit-title p {
-  padding: var(--padding);
-  font-size: 15px;
-  font-weight: 700;
-  text-transform: uppercase;
-  vertical-align: bottom;
-  text-align: center;
-  color: #222;
-}
+/*  */
 
 .about {
-  padding: var(--padding);
+  padding: var(--spacing) var(--spacing-2x);
   font-size: 115%;
   text-transform: uppercase;
   font-weight: 700;
@@ -146,6 +126,6 @@ html {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(var(--padding));
+  transform: translateY(var(--spacing));
 }
 </style>

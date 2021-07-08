@@ -24,6 +24,7 @@ import {
   uniBookmarkMonochrome,
   uniBookmark,
   uniCircleLayerMonochrome,
+  uniBooks,
 } from "vue-unicons/dist/icons";
 
 Unicon.add([
@@ -47,6 +48,7 @@ Unicon.add([
   uniBookmarkMonochrome,
   uniBookmark,
   uniCircleLayerMonochrome,
+  uniBooks,
 ]);
 Vue.use(Unicon);
 Vue.config.productionTip = false;

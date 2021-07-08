@@ -113,7 +113,7 @@ export default {
 
 .book-text h3 {
   display: -webkit-box;
-  padding: var(--padding) var(--padding) 0;
+  padding: var(--spacing) var(--spacing) 0;
   overflow: hidden;
   font-size: 1rem;
   line-height: 1.3;
@@ -123,11 +123,11 @@ export default {
 
 .book-text a {
   text-decoration: none;
-  color: inherit;
+  color: var(--charcoal-500);
+  transition: color 0.2s;
 }
 
-.book-text a {
-  text-decoration: none;
+.book-text a:hover {
   color: #000;
 }
 .book-text h3 div {
@@ -136,7 +136,7 @@ export default {
 
 .book-text p {
   margin-top: 0.5em;
-  padding: 0 var(--padding) var(--padding);
+  padding: 0 var(--spacing) var(--spacing);
   font-size: 0.9rem;
   line-height: 1.3;
 }
@@ -156,7 +156,7 @@ export default {
   bottom: 25%;
   justify-content: center;
   align-items: center;
-  padding: calc(var(--padding) / 2);
+  padding: var(--spacing-half);
   border: none;
   border-radius: 50%;
   color: var(--charcoal-500);
@@ -164,11 +164,10 @@ export default {
   line-height: 1;
   cursor: pointer;
   background: none;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: var(--shadow-md);
   transition: background-color 0.2s, box-shadow 0.2s;
   transform: translate(50%, 0);
-  backdrop-filter: blur(10px);
 }
 
 .fave span {
@@ -177,7 +176,7 @@ export default {
   margin-right: 0.15rem;
 }
 .fave:hover {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 1);
   box-shadow: var(--shadow-lg);
 }
 
