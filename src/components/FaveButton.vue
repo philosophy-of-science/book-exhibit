@@ -7,7 +7,7 @@
           name="bookmark"
           height="1.25em"
           width="1.25em"
-          fill="var(--charcoal-500)"
+          fill="var(--silver-500)"
           key="noFave"
         />
         <unicon
@@ -16,7 +16,7 @@
           icon-style="monochrome"
           width="1.25em"
           height="1.25em"
-          fill="var(--charcoal-500)"
+          fill="var(--silver-500)"
           key="faved"
         />
       </transition>
@@ -58,10 +58,10 @@ button {
   font-family: inherit;
   text-transform: uppercase;
   cursor: pointer;
-  background-color: #fff;
-  color: var(--charcoal-500);
+  color: #fff;
+  background-color: var(--red-500);
   box-shadow: var(--shadow);
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   border: 1px solid;
   line-height: 1;
   display: inline-flex;
@@ -70,7 +70,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--red-600);
   box-shadow: var(--shadow-lg);
 }
 
@@ -85,7 +85,7 @@ button div {
 }
 
 button span {
-  color: var(--red-500);
+  color: var(--silver-500);
   margin-left: 0.5em;
   font-variant-numeric: tabular-nums;
 }

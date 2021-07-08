@@ -291,7 +291,7 @@ nav li {
 h1 {
   display: inline-block;
   font-weight: 900;
-  font-size: 3.75rem;
+  font-size: 3.25rem;
   line-height: 1.2;
   font-family: Raleway;
   letter-spacing: -0.2px;
@@ -301,11 +301,12 @@ h1 {
   display: inline-block;
   font-size: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.2px;
 }
 
 .subheader span {
   color: var(--red-500);
+  font-weight: 700;
 }
 
 .header-img-block {
