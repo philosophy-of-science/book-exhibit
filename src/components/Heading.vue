@@ -17,7 +17,7 @@
               height="1.25em"
               width="1.25em"
               fill="var(--charcoal-400)"
-            />PSA</a
+            />&nbsp;PSA</a
           >
         </li>
         <li>
@@ -27,7 +27,7 @@
               height="1.25em"
               width="1.25em"
               fill="var(--charcoal-400)"
-            />Meeting</a
+            />&nbsp;Meeting</a
           >
         </li>
         <li>
@@ -37,7 +37,7 @@
               height="1.25em"
               width="1.25em"
               fill="var(--charcoal-400)"
-            />Donate</a
+            />&nbsp;Donate</a
           >
         </li>
         <li>
@@ -48,7 +48,7 @@
               height="1.25em"
               width="1.25em"
               fill="var(--red-500)"
-            />Join</a
+            />&nbsp;Join</a
           >
         </li>
       </ul>
