@@ -3,20 +3,24 @@
     <header>
       <div v-if="!faves">
         <h2 class="about">No favorites yet!</h2>
-        <p>
-          Click the bookmark
-          <unicon
-            name="bookmark"
-            height="1em"
-            width="1em"
-            color="currentColor"
-          />
-          to start saving.
-        </p>
       </div>
-      <h2 class="about" v-else>Favorites</h2>
+      <h2 class="about" v-else>
+        Favorites <span>{{ $store.state.faves.length }}</span>
+      </h2>
+      <button class="close" @click="closeFaves">
+        <unicon
+          name="times-circle"
+          height="1.25em"
+          width="1.25em"
+          fill="var(--red-500)"
+        />Close
+      </button>
     </header>
-
+    <p class="start-saving" v-if="!faves">
+      Click the bookmark
+      <unicon name="bookmark" height="1em" width="1em" color="currentColor" />
+      to start saving.
+    </p>
     <div class="btn-container" v-if="faves">
       <button class="btn-cta" @click="downloadFaves">
         <unicon
@@ -24,7 +28,7 @@
           height="1.25em"
           width="1.25em"
           fill="var(--charcoal-500)"
-        />Download Faves
+        />Download
       </button>
       <button class="btn-cta" v-if="!copied" @click="copyToClipboard">
         <unicon
@@ -32,23 +36,15 @@
           height="1.25em"
           width="1.25em"
           fill="var(--charcoal-500)"
-        />Copy to Clipboard
+        />Copy
       </button>
-      <button class="btn-cta" v-if="copied" @click="copyToClipboard">
+      <button class="btn-cta copied" v-if="copied" @click="copyToClipboard">
         <unicon
           name="clipboard-notes"
           height="1.25em"
           width="1.25em"
-          fill="var(--charcoal-500)"
-        />Copied to Clipboard!
-      </button>
-      <button class="btn-cta" @click="closeFaves">
-        <unicon
-          name="times-circle"
-          height="1.25em"
-          width="1.25em"
-          fill="var(--red-500)"
-        />Close
+          fill="#4BB543"
+        />Copied!
       </button>
     </div>
 
@@ -83,7 +79,7 @@ export default {
         }). ${book.link}\n`;
       });
       textArr.push(
-        `\n\n\nSaved from the PSA 2021 Virtual Book Exhibit on ${new Date().toLocaleDateString()}`
+        `\n\n\nSaved from the Philosophy of Science Association 2021 Virtual Book Exhibit on ${new Date().toLocaleDateString()}\nVisit us at https://philsci.org`
       );
       const text = textArr.join("\n");
       return text;
@@ -130,6 +126,10 @@ export default {
 </script>
 
 <style scoped>
+.btn-cta.copied {
+  color: #4bb543;
+}
+
 .container {
   max-width: 1024px;
   margin: 1rem auto;
@@ -138,6 +138,40 @@ export default {
 
 header {
   margin: 3rem auto var(--spacing);
+  padding: var(--spacing) var(--spacing-2x);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--bb);
+}
+
+.about {
+  padding: 0;
+  border: none;
+}
+
+.about span {
+  padding: 0.35em;
+  border-radius: 50%;
+  line-height: 1;
+  font-size: 0.8rem;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  background: var(--red-500);
+}
+
+.start-saving {
+  padding: var(--spacing) var(--spacing-2x);
+}
+
+.start-saving div {
+  line-height: 0;
+  position: relative;
+  top: 0.1em;
+  fill: var(--red-500);
 }
 
 h2 + p {
@@ -147,16 +181,6 @@ h2 + p {
 h2 + p > div {
   position: relative;
   top: 0.1em;
-}
-/* header h2 {
-  border-bottom: var(--bb);
-  padding-bottom: var(--spacing);
-} */
-.close-btn {
-  background: none;
-  border: none;
-  float: right;
-  cursor: pointer;
 }
 
 .btn-container {
@@ -168,8 +192,10 @@ h2 + p > div {
   align-items: center;
 }
 
-.btn-cta {
+.btn-cta,
+.close {
   padding: var(--spacing-half) var(--spacing);
+  margin: var(--spacing);
   border: none;
   border-radius: var(--radius);
   color: #fff;
@@ -188,24 +214,22 @@ h2 + p > div {
   align-items: center;
 }
 
-.btn-cta:not(last-child) {
-  margin: 0 var(--spacing) var(--spacing) 0;
-}
-
-.btn-cta:last-child {
+.close {
   color: var(--red-500);
 }
 
-.btn-cta:hover {
-  /* background-color: #f0f0f0; */
+.btn-cta:hover,
+.close:hover {
   box-shadow: var(--shadow-lg);
 }
 
-.btn-cta:active {
+.btn-cta:active,
+.close:active {
   box-shadow: var(--shadow-md);
 }
 
-.btn-cta div {
+.btn-cta div,
+.close div {
   position: relative;
   /* top: 0.22em; */
   margin-right: 0.5em;

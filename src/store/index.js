@@ -17,6 +17,9 @@ const store = new Vuex.Store({
   },
 
   mutations: {
+    setFaves(state, payload) {
+      state.faves = payload;
+    },
     addFave(state, payload) {
       state.faves.push(payload);
       localStorage.setItem("faves", JSON.stringify(state.faves));

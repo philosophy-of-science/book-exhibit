@@ -23,6 +23,12 @@ export default {
     FaveButton,
     FaveBar,
   },
+  mounted() {
+    const faves = localStorage.getItem("faves");
+    if (faves && faves.length) {
+      this.$store.commit("setFaves", JSON.parse(faves));
+    }
+  },
 };
 </script>
 

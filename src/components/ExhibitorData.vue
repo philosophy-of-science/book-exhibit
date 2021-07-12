@@ -40,7 +40,6 @@ export default {
   },
 
   beforeDestroy() {
-    console.log("destory");
     this.$store.commit("setScrollPos", window.scrollY);
     document.documentElement.style.scrollBehavior = "auto";
   },

@@ -53,7 +53,6 @@ export default {
 
   computed: {
     faved() {
-      console.log(this.$store.getters.isAFave(this.$props.book.title));
       return this.$store.getters.isAFave(this.$props.book.title);
     },
     filled() {

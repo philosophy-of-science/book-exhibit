@@ -44,34 +44,30 @@ export default {
 
 <style scoped>
 button {
-  display: flex;
+  display: inline-flex;
+  z-index: 1000;
   position: fixed;
   right: 2rem;
   bottom: 2rem;
-
-  backdrop-filter: blur(10px);
+  align-items: center;
   padding: var(--spacing-half) var(--spacing);
   border: none;
   border-radius: var(--radius);
+  color: #fff;
   font-weight: 700;
   font-size: 1rem;
+  line-height: 1;
   font-family: inherit;
   text-transform: uppercase;
   cursor: pointer;
-  color: #fff;
   background-color: var(--red-500);
-  box-shadow: var(--shadow);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: background-color 0.2s, box-shadow 0.2s;
-  border: 1px solid;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  z-index: 1000;
 }
 
 button:hover {
   background-color: var(--red-600);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 button:active {

@@ -130,12 +130,6 @@ export default {
       return { description1: description, description2: null };
     },
   },
-  methods: {
-    alertMe(b) {
-      console.log(b);
-      alert(b);
-    },
-  },
 };
 </script>
 
@@ -212,6 +206,10 @@ img {
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
   justify-self: center;
+}
+
+.exhibitor-body a:first-of-type {
+  margin-left: 0;
 }
 
 .exhibitor-body a div {

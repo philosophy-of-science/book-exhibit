@@ -17,11 +17,6 @@ export default {
     books: Array,
     areFaves: Boolean,
   },
-  methods: {
-    alertMe(d) {
-      console.log(d);
-    },
-  },
 };
 </script>
 

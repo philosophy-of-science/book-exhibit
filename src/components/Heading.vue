@@ -96,17 +96,14 @@ export default {
 }
 
 .header-grid {
-  background-color: #fff;
-  width: 100%;
-  grid-template-columns: repeat(4, 1fr);
   display: grid;
-}
-
-.header-grid {
-  position: fixed;
+  position: absolute;
   top: calc(32px + var(--spacing-2x));
-  align-items: center;
   right: 0;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media (min-width: 768px) {
@@ -226,14 +223,15 @@ nav li {
 
 .header-grid a,
 .header-grid button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: var(--spacing-half);
   border: none;
-  color: inherit;
   color: var(--charcoal-400);
   font-weight: 700;
   font-size: 0.8rem;
-  /* line-height: 1; */
   font-family: inherit;
   text-align: center;
   text-decoration: none;
@@ -247,10 +245,9 @@ nav li {
 .header-grid a div,
 .header-grid button div {
   position: relative;
-  top: 0.22em;
-  margin-right: 0.5em;
+  top: 0.15em;
+  margin-right: 0.15em;
   color: var(--charcoal-400);
-  /*  transform: translateY(1px); */
 }
 
 .header-grid a:hover,
