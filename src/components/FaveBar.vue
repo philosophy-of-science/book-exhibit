@@ -151,15 +151,15 @@ header {
 }
 
 .about span {
-  padding: 0 0.35em;
+  display: inline-block;
+  padding: 0.35em;
   border-radius: 50%;
-  line-height: 1;
-  font-size: 0.8rem;
   color: #fff;
-  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 10px;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 700;
+  vertical-align: super;
   background: var(--red-500);
 }
 
