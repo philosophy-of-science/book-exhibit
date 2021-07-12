@@ -151,7 +151,7 @@ header {
 }
 
 .about span {
-  padding: 0.35em;
+  padding: 0 0.35em;
   border-radius: 50%;
   line-height: 1;
   font-size: 0.8rem;
