@@ -271,8 +271,7 @@ nav li {
     url("../assets/bg.jpg");
   background-size: cover;
   padding: var(--spacing-2x);
-  min-height: 31.5rem;
-  /* background: var(--silver-500); */
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
