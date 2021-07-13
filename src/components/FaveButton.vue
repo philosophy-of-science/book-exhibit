@@ -67,8 +67,8 @@ export default {
 .fave-button__container {
   z-index: 1000;
   position: fixed;
-  right: 2rem;
-  bottom: 2rem;
+  right: 1rem;
+  bottom: 1rem;
   display: flex;
   border-radius: var(--radius);
   /* overflow: hidden; */
