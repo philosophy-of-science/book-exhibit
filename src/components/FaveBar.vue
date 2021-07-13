@@ -3,10 +3,26 @@
     <header>
       <div v-if="!faves">
         <h2 class="about">No favorites yet!</h2>
+        <p class="start-saving" v-if="!faves">
+          Click the bookmark
+          <unicon
+            name="bookmark"
+            height="1em"
+            width="1em"
+            color="currentColor"
+          />
+          to start saving.
+        </p>
       </div>
-      <h2 class="about" v-else>
-        Favorites <span>{{ $store.state.faves.length }}</span>
-      </h2>
+      <div v-else>
+        <h2 class="about">
+          Favorites <span>{{ $store.state.faves.length }}</span>
+        </h2>
+        <p>
+          Download a text file of your favorite books for later reference or
+          copy them to your clipboard
+        </p>
+      </div>
       <button class="close" @click="closeFaves">
         <unicon
           name="times-circle"
@@ -16,11 +32,7 @@
         />Close
       </button>
     </header>
-    <p class="start-saving" v-if="!faves">
-      Click the bookmark
-      <unicon name="bookmark" height="1em" width="1em" color="currentColor" />
-      to start saving.
-    </p>
+
     <div class="btn-container" v-if="faves">
       <button class="btn-cta" @click="downloadFaves">
         <unicon
@@ -90,6 +102,7 @@ export default {
     closeFaves() {
       this.$store.commit("toggleFaves");
     },
+
     copyToClipboard() {
       const el = document.createElement("textarea");
       el.value = this.list;
@@ -100,6 +113,7 @@ export default {
       this.copied = true;
       setTimeout(() => (this.copied = false), 2000);
     },
+
     downloadFaves() {
       const filename = "PSA Book Exhibit Faves";
 
@@ -137,7 +151,7 @@ export default {
 }
 
 header {
-  margin: 3rem auto var(--spacing);
+  margin: var(--spacing) auto;
   padding: var(--spacing) var(--spacing-2x);
   display: flex;
   justify-content: space-between;
@@ -148,23 +162,26 @@ header {
 .about {
   padding: 0;
   border: none;
+  display: flex;
+  align-items: center;
 }
 
 .about span {
   display: inline-block;
-  padding: 0.35em;
+  width: 2em;
+  height: 2em;
+  padding: 0.5em 0.25em;
+  margin-left: 0.5em;
   border-radius: 50%;
   color: #fff;
   font-weight: 700;
   font-size: 10px;
+  line-height: 1;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  vertical-align: super;
+  text-align: center;
+  /* vertical-align: super; */
   background: var(--red-500);
-}
-
-.start-saving {
-  padding: var(--spacing) var(--spacing-2x);
 }
 
 .start-saving div {
@@ -175,7 +192,7 @@ header {
 }
 
 h2 + p {
-  padding: var(--spacing) var(--spacing-2x);
+  margin-top: 1em;
 }
 
 h2 + p > div {
@@ -186,8 +203,8 @@ h2 + p > div {
 .btn-container {
   display: flex;
   flex-wrap: wrap;
-  margin: var(--spacing) 0;
-  padding: var(--spacing);
+  margin: var(--spacing-half) 0;
+  padding: 0 var(--spacing);
   justify-content: center;
   align-items: center;
 }

@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Heading />
     <transition name="fade" mode="out-in">
-      <exhibitor-data v-if="!this.$store.state.favesShown" />
+      <section v-if="!this.$store.state.favesShown">
+        <Heading />
+        <exhibitor-data />
+      </section>
       <fave-bar v-else />
     </transition>
     <fave-button />
