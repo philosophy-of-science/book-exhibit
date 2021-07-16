@@ -73,6 +73,7 @@ export default {
   border-radius: var(--radius);
   /* overflow: hidden; */
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: box-shadow 0.2s;
 }
 
 button {
@@ -101,7 +102,7 @@ button:hover {
   background-color: var(--red-600);
 }
 
-button:active {
+.fave-button__container:active {
   box-shadow: var(--shadow);
 }
 
@@ -157,32 +158,34 @@ button span {
 }
 
 /* Transition  */
-.fade-enter-active {
-  transition: opacity 0.2s, transform 0.2s;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .fade-enter-active {
+    transition: opacity 0.2s, transform 0.2s;
+  }
 
-.fade-leave-active {
-  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-}
+  .fade-leave-active {
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  }
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(0.5em);
-}
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
 
-/* Transition  */
-.slide-up-enter-active {
-  transition: opacity 0.4s, transform 0.3s ease-out;
-}
+  /* Transition  */
+  .slide-up-enter-active {
+    transition: opacity 0.4s, transform 0.3s ease-out;
+  }
 
-.slide-up-leave-active {
-  transition: opacity 0.4s, transform 0.3s ease-in;
-}
+  .slide-up-leave-active {
+    transition: opacity 0.4s, transform 0.3s ease-in;
+  }
 
-.slide-up-enter,
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translate(0, -65%) scale(0.7);
+  .slide-up-enter,
+  .slide-up-leave-to {
+    opacity: 0;
+    transform: translate(0, -65%) scale(0.7);
+  }
 }
 </style>

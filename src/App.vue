@@ -123,17 +123,19 @@ h6 {
 }
 
 /* Transition  */
-.fade-enter-active {
-  transition: opacity 0.3s, transform 0.3s;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .fade-enter-active {
+    transition: opacity 0.3s, transform 0.3s;
+  }
 
-.fade-leave-active {
-  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
-}
+  .fade-leave-active {
+    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+  }
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(var(--spacing));
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+    transform: translateY(var(--spacing));
+  }
 }
 </style>
