@@ -253,5 +253,22 @@
     "instragram": "https://www.instagram.com/degruyter_official/?hl=en",
     "linkedin": "https://www.linkedin.com/company/de-gruyter",
     "blog": ""
+  },
+  {
+    "title": "The Material Theory of Induction",
+    "author": "John D. Norton",
+    "date": 2021,
+    "description": "The fundamental burden of a theory of inductive inference is to determine which are the good inductive inferences or relations of inductive support and why it is that they are so. The traditional approach is modeled on that taken in accounts of deductive inference. It seeks universally applicable schemas or rules or a single formal device, such as the probability calculus. After millennia of halting efforts, none of these approaches has been unequivocally successful and debates between approaches persist. The Material Theory of Induction identifies the source of these enduring problems in the assumption taken at the outset: that inductive inference can be accommodated by a single formal account with universal applicability. Instead, it argues that that there is no single, universally applicable formal account. Rather, each domain has an inductive logic native to it. Which that is, and its extent, is determined by the facts prevailing in that domain. Paying close attention to how inductive inference is conducted in science and copiously illustrated with real-world examples, The Material Theory of Induction will initiate a new tradition in the analysis of inductive inference.",
+    "link": "https://press.ucalgary.ca/books/9781773852539/",
+    "cover": "the-material-theory-of-induction",
+    "slug": "university-of-calgary-press",
+    "publisher": "University of Calgary Press",
+    "logo": "https://www.degruyter.com/assets/images/3033280310b79f572ed9646513e6e2dc-dg-logo-nav-search.svg",
+    "website": "https://press.ucalgary.ca",
+    "twitter": "https://twitter.com/ucalgarypress",
+    "facebook": "https://www.facebook.com/ucalgarypress",
+    "instragram": "",
+    "linkedin": "",
+    "blog": ""
   }
 ]
