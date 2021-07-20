@@ -90,7 +90,7 @@
       <p>{{ description }}</p>
       <!-- <p>{{ splitDescription.description2 }}</p> -->
     </div>
-    <p v-if="books" class="exhibitor-about">Books</p>
+    <p v-if="books" class="exhibitor-about">Titles</p>
     <Books :books="books" :areFaves="false" />
   </div>
 </template>

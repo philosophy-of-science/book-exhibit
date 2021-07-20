@@ -3,8 +3,9 @@
 FILES="*.jpg *.png *.jpeg *.gif"
 
 for f in $FILES
+if [[$f != *'-logo'* ]]
 do
 	echo "Processing ${f%.*}"
-	convert $f -resize 100x100 ${f%.*}-logo.png
-
+	# convert $f -resize 100x100 ${f%.*}-logo.png
+fi
 done

@@ -4,8 +4,9 @@ FILES="*.jpg *.png *.jpeg *.gif"
 
 for f in $FILES
 do
+if [[ $f != *'-cover'* ]]
+then
 	echo "Processing ${f%.*}"
-	convert $f -resize 175x261 ${f%.*}-cover-sm.jpg
 	convert $f -resize 200x298 ${f%.*}-cover.jpg
-
+fi
 done
