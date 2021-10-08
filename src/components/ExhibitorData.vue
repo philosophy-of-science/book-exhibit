@@ -16,6 +16,21 @@
         :books="exhibitor.books"
       />
     </section>
+    <footer>
+      <p>
+        <a href="https://philsci.org">Philosophy of Science Association</a>
+        {{ new Date().getFullYear() }}
+      </p>
+      <p>
+        <a href="https://mms.philsci.org/members/wish/donate.php?org_id=PSA"
+          >Support the PSA</a
+        >
+      </p>
+      <p>
+        Designed + Built by
+        <a href="https://ryanfeigenbaum.com">Ryan Feigenbaum</a>
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -113,6 +128,15 @@ export default {
 
 <style scoped>
 div {
-  margin: 3rem 0;
+  margin: 3rem 0 0;
+}
+
+footer {
+  padding: var(--spacing) var(--spacing-2x);
+  font-size: 15px;
+  border-top: 1px solid var(--silver-600);
+}
+footer a {
+  color: inherit;
 }
 </style>
